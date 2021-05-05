@@ -1,14 +1,22 @@
 * {
     font-family: 'Girassol', cursive;
     font-family: 'Itim', cursive;
+
     
 }
 
+body {
+    background-image: url(https://media-cdn.tripadvisor.com/media/photo-s/0b/b9/8f/19/a-serene-june-morning.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    font-size: 200%;
+    margin: 100px;
+    width: auto;
+}
 
 
 div {
-    margin: auto;
-    width: 50%;
+
     border: 3px solid green;
     padding: 10px;
     text-align: center;
