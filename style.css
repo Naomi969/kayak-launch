@@ -1,8 +1,13 @@
 * {
     font-family: 'Girassol', cursive;
     font-family: 'Itim', cursive;
-}
-
-.button {
     
 }
+
+div {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+}
+
