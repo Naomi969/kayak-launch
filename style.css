@@ -1,8 +1,5 @@
 * {
-    font-family: 'Girassol', cursive;
-    font-family: 'Itim', cursive;
-
-    
+    font-family: 'Cormorant', serif;
 }
 
 body {
@@ -17,20 +14,29 @@ body {
 h1 {
     text-align: right;
     margin-bottom: 100px;
+    font-family: 'Itim', cursive;
 }
 
 
 div {
     border: 3px solid black;
     padding: 10px;
-    margin: 70px;
+    margin: 20px;
 }
 
-#youchoose, #theOn {
+#buddies, #recent {
+    max-width: 50%;
+}
+
+#youchoose, #theOn, #chekum {
     max-width: 500px;
+    justify-content: right;
+
 }
 
-#recent {}
+ {
+
+}
 
 
 
