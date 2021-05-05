@@ -25,16 +25,10 @@ div {
 }
 
 #buddies, #recent {
-    max-width: 50%;
 }
 
 #youchoose, #theOn, #chekum {
-    max-width: 500px;
     justify-content: right;
-
-}
-
- {
 
 }
 
