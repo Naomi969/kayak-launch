@@ -14,14 +14,23 @@ body {
     width: auto;
 }
 
+h1 {
+    text-align: right;
+    margin-bottom: 100px;
+}
+
 
 div {
-
     border: 3px solid black;
     padding: 10px;
-    text-align: center;
-    margin: 20px;
+    margin: 70px;
 }
+
+#youchoose, #theOn {
+    max-width: 500px;
+}
+
+#recent {}
 
 
 
