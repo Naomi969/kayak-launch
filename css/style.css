@@ -3,17 +3,23 @@
     border: 3px solid black;
 }
 
+body {
+    background-image: url(https://media-cdn.tripadvisor.com/media/photo-s/0b/b9/8f/19/a-serene-june-morning.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    font-size: 200%;
+    width: auto;
+}
+
+h1 {
+
+}
+
 div {
     margin-top: 50px;
     margin-bottom: 50px;
     max-height: 500px;
 }
-
-
-input[type=text] {
-
-  }
-
 
 
 
