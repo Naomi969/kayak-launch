@@ -4,8 +4,8 @@
 }
 
 div {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     max-height: 500px;
 }
 
@@ -14,15 +14,7 @@ input[type=text] {
 
   }
 
-  .button {
-    background-color: #000000;
-    color: #FFFFFF;
-    float: right;
-    padding: 10px;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-  }
+
 
 
 
