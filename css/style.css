@@ -1,9 +1,11 @@
 :root {
-    --Ton: #ad1457;
+    --Ton: burlywood;
 }
 
+
+
 * {
-    font-family: 'Cormorant', serif;
+    font-family: 'Girassol', cursive;
     border: 3px solid black;
 }
 
@@ -18,6 +20,7 @@ body {
 h1 {
     text-align: right;
     font-size: 250%;
+    background-color: var(--Ton);
 }
 
 div {
