@@ -1,3 +1,7 @@
+:root {
+    --Ton: #ad1457;
+}
+
 * {
     font-family: 'Cormorant', serif;
     border: 3px solid black;
@@ -12,7 +16,7 @@ body {
 }
 
 h1 {
-
+    text-align: right;
 }
 
 div {
