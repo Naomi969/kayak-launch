@@ -26,7 +26,7 @@ div {
     max-height: 500px;
 }
 
-#ton, #youchoose, #chekum {
+#ton, #youchoose, #chekum, #Box, #RS {
     display: flex;
     justify-content: center;
     align-items: center;
