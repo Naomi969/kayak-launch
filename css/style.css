@@ -26,7 +26,12 @@ div {
     max-height: 500px;
 }
 
-
+#ton, #youchoose, #chekum {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--Ton);
+}
 
 
 
