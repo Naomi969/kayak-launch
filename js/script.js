@@ -1,5 +1,4 @@
-var dotty = document.querySelector('a');
-var paragraph = document.querySelector('p');
+var john = document.querySelector('john');
 
-dotty.addEventListener('click', console.log("dotty"));
+
 
