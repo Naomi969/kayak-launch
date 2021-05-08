@@ -1,3 +1,41 @@
-* {
-    font-family: 'Courier New', Courier, monospace;
+:root {
+    --Ton: burlywood;
 }
+
+
+
+* {
+    font-family: 'Girassol', cursive;
+
+}
+
+body {
+    background-image: url(https://media-cdn.tripadvisor.com/media/photo-s/0b/b9/8f/19/a-serene-june-morning.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    font-size: 250%;
+    width: auto;
+}
+
+h1 {
+    text-align: center;
+    font-size: 200%;
+    background-color: var(--Ton);
+}
+
+div {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    max-height: 500px;
+}
+
+#ton, #youchoose, #chekum, #Box, #RS {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--Ton);
+}
+
+
+
+
