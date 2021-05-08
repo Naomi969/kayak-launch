@@ -26,12 +26,12 @@
 
     
 
-// };       
+};       
 
 
 // WM's nonsense:
 
-var john = document.querySelector('#john');
+/*var john = document.querySelector('#john');
 var order = document.querySelector('#order');
 var userInput = document.querySelector('#userInput')
 
@@ -50,7 +50,7 @@ function updateorder (event) {
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/button - machine is stopped indeed.
 
 
-};       
+};   */    
 
 //Add primary search (city) from page1 to local storage
 
@@ -60,6 +60,7 @@ $("#john").on("click", function(event) {
     var userCity = $("#userInput").val();
     storeCity.push(userCity);
     localStorage.setItem("cities", JSON.stringify(storeCity))
+    displayCityBtn();
 });
 
 //load saved cities from local storage
@@ -68,7 +69,7 @@ function loadCity() {
     if (loadCity) {
         city = JSON.parse(savedCity);
         city.reverse();
-        displayCityBtn();
+        
         curWeather(storeCity[0]);
     }
 
@@ -76,7 +77,7 @@ function loadCity() {
 
 //displays saved recent searches as button in Recent Searches on page1
 function displayCityBtn() {
-    $("#box").empty();
+    $("#order").empty();
     for (var i = 0; i < storeCity.length; i++){
         var newBtn = $("<button>");
         newBtn.attr("type", "button");
@@ -84,15 +85,7 @@ function displayCityBtn() {
         newBtn.attr("data-cityName", storeCity[i]);
         newBtn.text(storeCity[i])
 
-        $("#box").append(newBtn);
+        $("#order").append(newBtn);
     }
-    localStorage.setItem("Cities", JSON.stringify(storeCity));
+   
 };
-
-
-
-
-    
-
-
-
