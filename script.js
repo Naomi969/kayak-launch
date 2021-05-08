@@ -21,8 +21,8 @@
                     
        
 
-        $("#weather").append(cityData);
-    })
+//        $("#weather").append(cityData);
+//    })
 
     
 
@@ -34,6 +34,7 @@
 var john = document.querySelector('#john');
 var order = document.querySelector('#order');
 var userInput = document.querySelector('#userInput')
+var mapDisplay = $('#map');
 
 
 john.addEventListener('click', updateorder);
@@ -47,10 +48,7 @@ function updateorder (event) {
   }
 }
 
-// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/button - machine is stopped indeed.
-
-
-};       
+// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/button - machine is stopped indeed.      
 
 //Add primary search (city) from page1 to local storage
 
@@ -89,10 +87,16 @@ function displayCityBtn() {
     localStorage.setItem("Cities", JSON.stringify(storeCity));
 };
 
-
-}
-
-    
-
-
-
+// MAP INTEGRATION
+function initMap() {
+    var somewhereNearMandale = { lat: 35.8268180464077, lng: -79.2584376142173 }
+    //  ^^^ this can be any variable with an array of lat/long object values
+    const map = new google.maps.Map(mapDisplay, {
+      zoom: 12,
+      center: somewhereNearMandale,
+    });
+    const marker = new google.maps.Marker({
+      position: somewhereNearMandale,
+      map: map,
+    });
+  };
