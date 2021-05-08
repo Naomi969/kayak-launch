@@ -1,5 +1,6 @@
 var john = document.querySelector('#john');
 var order = document.querySelector('#order');
+var userInput = document.querySelector('#userInput')
 
 
 
@@ -8,11 +9,10 @@ john.addEventListener('click', updateorder);
 
 function updateorder (event) {
   if (john.value === 'click') {
-    john.value = 'click';
-    console.log('john');
+    order.textContent = userInput;
   } else {
     john.value = 'Start machine';
-    order.textContent = 'The machine is stopped.';
+    order.textContent = #userInput;
   }
 }
 
