@@ -20,7 +20,7 @@ function curWeather(locale) {
                     <p> Humidity: ${data.main.humidity} \% </p>`);
                     
        
-        $("#todayWeather").append(cityData);
+        $("#weather").append(cityData);
     })
     
 };       
@@ -40,9 +40,26 @@ function loadCity() {
     var savedCity = localStorage.getItem("cities");
     if (loadCity) {
         city = JSON.parse(savedCity);
+        city.reverse();
+        displayCityBtn();
+        curWeather(storeCity[0]);
     }
-}
-    
+};
 
-/// Darkmode button and Dingo picture background
+//displays saved recent searches as button in Recent Searches on page1
+function displayCityBtn() {
+    $("#box").empty();
+    for (var i = 0; i < storeCity.length; i++){
+        var newBtn = $("<button>");
+        newBtn.attr("type", "button");
+        newBtn.attr("class", "list-group-item list-group-item-action cityBtn");
+        newBtn.attr("data-cityName", storeCity[i]);
+        newBtn.text(storeCity[i])
+
+        $("#box").append(newBtn);
+    }
+    localStorage.setItem("Cities", JSON.stringify(storeCity));
+};
+
+
 
