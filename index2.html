@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./style2.css">
+    <title>Kayak Launch Results</title>
+</head>
+<header>
+    <span class='searchAgain'>
+        <label for="text"></label>
+        <input type="text" id="city/state" name="city/state" placeholder="Search Again"><br><br>
+        <button id='userChoiceBtn' class="btn waves-effect waves-light center-align" type="submit" form="form1"
+            value="Submit">Submit</button>
+    </span>
+</header>
+
+<body>
+    <div class='row'>
+        <section class="col s6" id='search-weather-container'>
+            <div class="center-align" id='results'>
+                <h5>Top Results</h5>
+                <ul>
+                    <li id='tSearch1'>Jordan Lake</li>
+                    <li id='tSearch2'>Johnson Lake</li>
+                    <li id='tSearch3'>Bird Lake</li>
+
+                </ul>
+            </div>
+
+            <div id="weather">
+                <div class='wcon'>
+                    <h5 class="center-align">Current Weather</h5>
+                    <div class='temp' id='temp'>
+                        <h6>Temperature</h6>
+                        <p></p>
+                    </div>
+
+                    <div class='humidity' id='humidity'>
+                        <h6>humidity</h6>
+                        <p></p>
+                    </div>
+
+                    <div class='cr' id='rain'>
+                        <h6>Chances of Rain</h6>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="col s6" id='map'>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
