@@ -1,6 +1,5 @@
-/// Darkmode button and Dingo picture background
+var dotty = document.querySelector('a');
+var paragraph = document.querySelector('p');
 
-function myFunction() {
-    var element = document.body;
-    element.classList.toggle("dark-mode");
-  }
+dotty.addEventListener('click', console.log("dotty"));
+
