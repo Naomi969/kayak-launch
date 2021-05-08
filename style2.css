@@ -1,3 +1,7 @@
+:root {
+    --Ton: burlywood;
+}
+
 header{
     display: flex;
     flex-wrap: wrap;
