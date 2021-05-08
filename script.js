@@ -33,8 +33,6 @@ var order = document.querySelector('#order');
 var userInput = document.querySelector('#userInput')
 
 
-
-
 john.addEventListener('click', updateorder);
 
 function updateorder (event) {
