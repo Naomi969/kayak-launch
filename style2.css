@@ -1,0 +1,50 @@
+header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+::-webkit-input-placeholder {
+    text-align: center;
+  }
+
+#search-weather-container{
+  padding: 0rem 
+}
+
+#map{
+    float: right;
+    width: 50vw;
+    height: 402px;
+    border: 2px solid #007780;
+    margin-top: 2px;
+    
+}
+
+#results{
+    height: 200px;
+    width: 50vw;
+    margin-bottom: 2px;
+    margin-top: 2px
+}
+
+#weather{
+    height: 200px;
+    width: 50vw
+}
+
+#mappic{
+    width: 250px;
+    height: 426px;
+}
+
+.wcon{
+    text-align: center;
+}
+.temp .humidity .cr{
+    display: inline-block;
+    padding: 10px;
+    padding-left: 20px;
+}
+
+
+
