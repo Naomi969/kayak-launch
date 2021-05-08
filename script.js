@@ -24,6 +24,24 @@ function curWeather(locale) {
     })
     
 };       
+
+//Add primary search (city) from page1 to local storage
+
+var storeCity = [];
+
+$("#john").on("click", function(event) {
+    var userCity = $("#userInput").val();
+    storeCity.push(userCity);
+    localStorage.setItem("cities", JSON.stringify(storeCity))
+});
+
+//load saved cities from local storage
+function loadCity() {
+    var savedCity = localStorage.getItem("cities");
+    if (loadCity) {
+        city = JSON.parse(savedCity);
+    }
+}
     
 
 /// Darkmode button and Dingo picture background
