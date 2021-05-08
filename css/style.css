@@ -6,7 +6,6 @@
 
 * {
     font-family: 'Girassol', cursive;
-    border: 3px solid black;
 
 }
 
@@ -24,13 +23,9 @@ h1 {
     background-color: var(--Ton);
 }
 
-#bk {
-    margin: 1000px;
-}
-
 div {
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 25px;
+    margin-bottom: 25px;
     max-height: 500px;
 }
 
