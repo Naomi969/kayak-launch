@@ -1,6 +1,6 @@
 
 // //Current Weather function//
- var date = moment().format("L");
+ //var date = moment().format("L");
  var key = '957c1d427eb08dc32b2d83caeea47227'
 
  function curWeather(locale) {
