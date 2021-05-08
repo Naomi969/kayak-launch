@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./style2.css">
+    <title>Kayak Launch Results</title>
+</head>
+<header>
+    <span class="center-align">
+        <label for="text"></label>
+        <input type="text" id="city/state" name="city/state" placeholder="Search Again"><br><br>
+        <button id='userChoiceBtn' class="btn waves-effect waves-light" type="submit" form="form1"
+            value="Submit">Submit</button>
+    </span>
+</header>
+
+<body>
+    <div class='row'>
+        <section class="col s12 m6 l3" id='search-weather-container'>
+            <div id='results'>
+                <h5 class="center-align">Top Results</h5>
+                <ol>
+                    <li id='tSearch1'>Jordan Lake</li>
+                    <li id='tSearch2'>Johnson Lake</li>
+                    <li id='tSearch3'>Bird Lake</li>
+
+                </ol>
+            </div>
+
+            <div id="weather">
+                <h5 class="center-align">Current Weather</h5>
+                <dl>
+                    <dt>Temperature</dt>
+                    <dd>-</dd>
+                    <dt>Humidity</dt>
+                    <dd>-</dd>
+                    <dt>Wind Speed</dt>
+                    <dd>-</dd>
+                </dl>
+            </div>
+
+        </section>
+
+        <div class="col s12 m6 l3" id='map'>
+            <img id='mappic' src="https://developers.google.com/maps/documentation/android-sdk/images/camera-angle-45-shot.png" alt="Girl in a jacket">
+
+        </div>
+    </div>
+
+</body>
+
+</html>
