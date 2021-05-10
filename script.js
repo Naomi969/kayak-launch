@@ -108,8 +108,13 @@ function displayCityBtn() {
 
         $("#order").append(newBtn);
     }
- 
+
+
 };
+
+    localStorage.setItem("Cities", JSON.stringify(storeCity));
+}; 
+
 
 
 
@@ -126,5 +131,60 @@ function initMap() {
       map: map,
     });
   };
+
+
+
+
+  // info to allow lat and lon to grab location, as well as info for trrails
+  var API_KEY = '10e1f68a65cde5b6f69c3c18e862cb60';
+  var longitude = -78.509323;
+  var latitude = 35.979309;
+    
+   fetch(
+    `https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lon=${longitude}&lat=${latitude}`,
+    {
+      method: 'GET',
+      headers: {
+        'x-rapidapi-key':
+          'KyNZyDwQySmsh71Zva51yAb90PL8p1YmArmjsns2ZSMTE7P2js',
+        'x-rapidapi-host': 'trailapi-trailapi.p.rapidapi.com',
+      },
+    }
+  )
+    .then((response) => {
+      console.log(response);
+      return response.json();
+    })
+    .then((data) => {
+      console.log('data!!?!?! ', data);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+
+    var apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${API_KEY}`;
+  fetch(apiUrl)
+    .then(function (data) {
+      return data.json();
+    })
+    .then(function (data) {
+      // List of all return data
+      console.log(data.timezone);
+      // List of Current Weather Info
+      // console.log(data.current)
+      console.log(data.daily);
+      console.log(`UVI: ${data.current.uvi}`);
+      console.log(`TEMP: ${data.current.temp}`);
+      console.log(`WIND_SPEED: ${data.current.wind_speed}`);
+      console.log(`HUMIDITY: ${data.current.humidity}`);
+      var curWeatherContainer = $('#cur-weather-container');
+      console.log('curWeatherContainer:', curWeatherContainer);
+      curWeatherContainer.append(`<h1>Temperature ${data.current.temp}</h1>`);
+      curWeatherContainer.append(`<h1>UV Index ${data.current.uvi}</h1>`);
+      curWeatherContainer.append(`<h1>Wind Speed ${data.current.wind_speed}</h1>`);
+      curWeatherContainer.append(`<h1>Humidity ${data.current.humidity}</h1>`);
+
+    });
+  
 
 
