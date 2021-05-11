@@ -1,9 +1,9 @@
 // //Current Weather function//
  var date = moment().format("L");
  var key = '957c1d427eb08dc32b2d83caeea47227'
-
- function curWeather(locale) {
-     var qUrl = `https://api.openweathermap.org/data/2.5/weather?q=${locale}&units=imperial&appid=957c1d427eb08dc32b2d83caeea47227`;
+ var inputCity = document.getElementById('userInput').nodeValue;
+ function curWeather(inputCity) {
+     var qUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity}&units=imperial&appid=957c1d427eb08dc32b2d83caeea47227`;
      
      fetch(qUrl)
      .then(function(response) {
@@ -46,7 +46,7 @@ function updateorder (event) {
 
 var storeCity = [];
 
-$("#john", "#userChoiceBtn").on("click", function(event) {
+$("#john").on("click", function(event) {
     var userCity = $("#userInput").val();
     storeCity.push(userCity);
     localStorage.setItem("cities", JSON.stringify(storeCity))
@@ -64,7 +64,7 @@ function loadCity() {
     }
 
 };
-window.location.href = '/index2.html'
+window.location.href = 'index2.html'
 });
 //displays saved recent searches as button in Recent Searches on page1
 function displayCityBtn() {
@@ -77,11 +77,10 @@ function displayCityBtn() {
         newBtn.text(storeCity[i])
 
         $("#Box").append(newBtn);
-    }
-    
+    }  
 }; 
 
-
+/*
 // MAP INTEGRATION
 function initMap() {
     var somewhereNearMandale = { lat: 35.8268180464077, lng: -79.2584376142173 }
@@ -95,7 +94,7 @@ function initMap() {
       map: map,
     });
   };
-
+*/
 
   // info to allow lat and lon to grab location, as well as info for trrails
   var API_KEY = '10e1f68a65cde5b6f69c3c18e862cb60';
@@ -123,7 +122,7 @@ function initMap() {
     .catch((err) => {
       console.error(err);
     });
-
+/*
     var apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${API_KEY}`;
   fetch(apiUrl)
     .then(function (data) {
@@ -146,6 +145,4 @@ function initMap() {
       curWeatherContainer.append(`<h1>Wind Speed ${data.current.wind_speed}</h1>`);
       curWeatherContainer.append(`<h1>Humidity ${data.current.humidity}</h1>`);
 
-    });
-  
-  
+    });*/
