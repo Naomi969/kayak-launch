@@ -1,3 +1,17 @@
+// MAP INTEGRATION
+function initMap() {
+  var somewhereNearMandale = { lat: 35.8268180464077, lng: -79.2584376142173 }
+  //  ^^^ this can be any variable with an array of lat/long object values
+  const map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 12,
+    center: somewhereNearMandale,
+  });
+  const marker = new google.maps.Marker({
+    position: somewhereNearMandale,
+    map: map,
+  });
+};
+
 // //Current Weather function//
  var date = moment().format("L");
  var key = '957c1d427eb08dc32b2d83caeea47227'
@@ -80,6 +94,7 @@ function displayCityBtn() {
     }  
 }; 
 
+<<<<<<< HEAD
 /*
 // MAP INTEGRATION
 function initMap() {
@@ -96,6 +111,8 @@ function initMap() {
   };
 */
 
+=======
+>>>>>>> 785373267f6c7c8602d6f3a28b9d965cd535d40d
   // info to allow lat and lon to grab location, as well as info for trrails
   var API_KEY = '10e1f68a65cde5b6f69c3c18e862cb60';
   var longitude = -78.509323;
