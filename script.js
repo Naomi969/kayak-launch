@@ -1,3 +1,17 @@
+// MAP INTEGRATION
+// 
+function initMap() {
+    var somewhereNearMandale = { lat: 35.8268180464077, lng: -79.2584376142173 }
+    //  ^^^ this can be any variable with an array of lat/long object values
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 12,
+      center: somewhereNearMandale,
+    });
+    const marker = new google.maps.Marker({
+      position: somewhereNearMandale,
+      map: map,
+    });
+};
 
 //Current Weather function//
 var date = moment().format("L");
@@ -49,7 +63,7 @@ function curWeather(locale) {
 //    })
 
     
-
+     });
 };       
 
 
@@ -108,23 +122,7 @@ function displayCityBtn() {
         $("#box").append(newBtn);
     }
     localStorage.setItem("Cities", JSON.stringify(storeCity));
-}; 
-
-
-// MAP INTEGRATION
-function initMap() {
-    var somewhereNearMandale = { lat: 35.8268180464077, lng: -79.2584376142173 }
-    //  ^^^ this can be any variable with an array of lat/long object values
-    const map = new google.maps.Map(mapDisplay, {
-      zoom: 12,
-      center: somewhereNearMandale,
-    });
-    const marker = new google.maps.Marker({
-      position: somewhereNearMandale,
-      map: map,
-    });
-  };
-
+};
 
   // info to allow lat and lon to grab location, as well as info for trrails
   var API_KEY = '10e1f68a65cde5b6f69c3c18e862cb60';
@@ -176,5 +174,4 @@ function initMap() {
       curWeatherContainer.append(`<h1>Humidity ${data.current.humidity}</h1>`);
 
     });
-  
-
+  };
