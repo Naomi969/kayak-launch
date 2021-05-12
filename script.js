@@ -10,6 +10,7 @@
          return response.json();
      })
      .then(function (data){
+       console.log(data)
          var icon = data.weather[0].icon;
          var iUrl = `https://openweathermap.org/img/wn/${icon}.png`;
             var cityData = $(`
@@ -18,6 +19,7 @@
                      <p> Wind Speed:  ${data.wind.speed} mph </p>
                      <p> Humidity: ${data.main.humidity} \% </p>`);
         $("#weather").append(cityData);
+        getTrailandforcastdat(data.coord.lat, data.coord.lon)
    })
 };       
 
@@ -51,7 +53,7 @@ $("#john", "#userChoiceBtn").on("click", function(event) {
     storeCity.push(userCity);
     localStorage.setItem("cities", JSON.stringify(storeCity))
     displayCityBtn();
-    curWeather();
+    curWeather(userCity);
 
 
 //load saved cities from local storage
@@ -99,9 +101,9 @@ function initMap() {
 
   // info to allow lat and lon to grab location, as well as info for trrails
   var API_KEY = '10e1f68a65cde5b6f69c3c18e862cb60';
-  var longitude = -78.509323;
-  var latitude = 35.979309;
-    
+  // var longitude = -78.509323;
+  // var latitude = 35.979309;
+    function getTrailandforcastdat(latitude, longitude){
    fetch(
     `https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lon=${longitude}&lat=${latitude}`,
     {
@@ -134,11 +136,11 @@ function initMap() {
       console.log(data.timezone);
       // List of Current Weather Info
       // console.log(data.current)
-      console.log(data.daily);
-      console.log(`UVI: ${data.current.uvi}`);
-      console.log(`TEMP: ${data.current.temp}`);
-      console.log(`WIND_SPEED: ${data.current.wind_speed}`);
-      console.log(`HUMIDITY: ${data.current.humidity}`);
+      // console.log(data.daily);
+      // console.log(`UVI: ${data.current.uvi}`);
+      // console.log(`TEMP: ${data.current.temp}`);
+      // console.log(`WIND_SPEED: ${data.current.wind_speed}`);
+      // console.log(`HUMIDITY: ${data.current.humidity}`);
       var curWeatherContainer = $('#cur-weather-container');
       console.log('curWeatherContainer:', curWeatherContainer);
       curWeatherContainer.append(`<h1>Temperature ${data.current.temp}</h1>`);
@@ -146,6 +148,8 @@ function initMap() {
       curWeatherContainer.append(`<h1>Wind Speed ${data.current.wind_speed}</h1>`);
       curWeatherContainer.append(`<h1>Humidity ${data.current.humidity}</h1>`);
 
+      
     });
-  
+  }
+  curWeather("Raleigh")
   
