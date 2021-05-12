@@ -1,9 +1,24 @@
+// MAP INTEGRATION
+function initMap() {
+  var somewhereNearMandale = { lat: 35.8268180464077, lng: -79.2584376142173 }
+  //  ^^^ this can be any variable with an array of lat/long object values
+  const map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 12,
+    center: somewhereNearMandale,
+  });
+  const marker = new google.maps.Marker({
+    position: somewhereNearMandale,
+    map: map,
+  });
+};
+
 // //Current Weather function//
  var date = moment().format("L");
  var key = '957c1d427eb08dc32b2d83caeea47227'
-
- function curWeather(locale) {
-     var qUrl = `https://api.openweathermap.org/data/2.5/weather?q=${locale}&units=imperial&appid=957c1d427eb08dc32b2d83caeea47227`;
+ var storeCity = [];
+ function curWeather(storeCity) {
+   console.log('cur weather called!!!!!! ', storeCity)
+     var qUrl = `https://api.openweathermap.org/data/2.5/weather?q=${storeCity}&units=imperial&appid=957c1d427eb08dc32b2d83caeea47227`;
      
      fetch(qUrl)
      .then(function(response) {
@@ -23,32 +38,11 @@
    })
 };       
 
-
-// WM's nonsense:
-
-/*var john = document.querySelector('#john');
-var order = document.querySelector('#order');
-var userInput = document.querySelector('#userInput')
-var mapDisplay = $('#map');
-
-
-john.addEventListener('click', updateorder);
-
-function updateorder (event) {
-  if (john.value === 'click') {
-    john.value = 'Start machine';
-  } else {
-    john.value = 'Start machine';
-    order.textContent = 'userValue';
-  }
-}*/
-
-
 //Add primary search (city) from page1 to local storage
 
-var storeCity = [];
 
-$("#john", "#userChoiceBtn").on("click", function(event) {
+
+$("#john").on("click", function(event) {
     var userCity = $("#userInput").val();
     storeCity.push(userCity);
     localStorage.setItem("cities", JSON.stringify(storeCity))
@@ -56,21 +50,27 @@ $("#john", "#userChoiceBtn").on("click", function(event) {
     curWeather(userCity);
 
 
-//load saved cities from local storage
-function loadCity() {
-    var savedCity = localStorage.getItem("cities");
-    if (loadCity) {
-        city = JSON.parse(savedCity);
-        city.reverse();
-        curWeather(storeCity[0]);
-    }
+    window.location.href = 'index2.html'
+    
+  });
+  //load saved cities from local storage
+  function loadCity() {
+      var savedCity = localStorage.getItem("cities");
 
-};
-window.location.href = '/index2.html'
-});
+      console.log('saved city? ', savedCity)
+      if (savedCity) {
+          city = JSON.parse(savedCity);
+          city.reverse();
+
+          console.log('what are you ', city)
+          curWeather(city[0]);
+      }
+  
+  };
+
 //displays saved recent searches as button in Recent Searches on page1
 function displayCityBtn() {
-    $("#Box").empty();
+    
     for (var i = 0; i < storeCity.length; i++){
         var newBtn = $("<button>");
         newBtn.attr("type", "button");
@@ -79,25 +79,9 @@ function displayCityBtn() {
         newBtn.text(storeCity[i])
 
         $("#Box").append(newBtn);
-    }
-    
+    }  
+    localStorage.setItem('cities', JSON.stringify(storeCity));
 }; 
-
-
-// MAP INTEGRATION
-function initMap() {
-    var somewhereNearMandale = { lat: 35.8268180464077, lng: -79.2584376142173 }
-    //  ^^^ this can be any variable with an array of lat/long object values
-    const map = new google.maps.Map(mapDisplay, {
-      zoom: 12,
-      center: somewhereNearMandale,
-    });
-    const marker = new google.maps.Marker({
-      position: somewhereNearMandale,
-      map: map,
-    });
-  };
-
 
   // info to allow lat and lon to grab location, as well as info for trrails
   var API_KEY = '10e1f68a65cde5b6f69c3c18e862cb60';
@@ -151,5 +135,5 @@ function initMap() {
       
     });
   }
-  curWeather("Raleigh")
-  
+ //curWeather("Raleigh")
+  loadCity()
