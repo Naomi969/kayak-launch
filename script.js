@@ -17,6 +17,7 @@ function initMap() {
  var key = '957c1d427eb08dc32b2d83caeea47227'
  var storeCity = [];
  function curWeather(storeCity) {
+   console.log(`curWeather is running`);
      var qUrl = `https://api.openweathermap.org/data/2.5/weather?q=${storeCity}&units=imperial&appid=957c1d427eb08dc32b2d83caeea47227`;
      
      fetch(qUrl)
@@ -30,9 +31,13 @@ function initMap() {
                      <h3> ${data.name}  ${date} <img src="${iUrl}" alt="${data.weather[0].description}"</h3>
                      <p> Current Temp: ${data.main.temp}\u00B0 F </p>
                      <p> Wind Speed:  ${data.wind.speed} mph </p>
-                     <p> Humidity: ${data.main.humidity} \% </p>`);        
+                     <p> Humidity: ${data.main.humidity} \% </p>`);
+          var userCityLng = data.coord.lon
+          var userCityLat = data.coord.lat
+          console.log(`userCity Longitude, Latitude:  ${userCityLng}, ${userCityLat}`)
       console.log('weather', data);
       $("#weather").append(cityData);
+
      })
    
 };       
@@ -43,10 +48,11 @@ function initMap() {
 
 $("#john").on("click", function(event) {
     var userCity = $("#userInput").val();
+    console.log(`CITY ENTERED: ${userCity}`);
     storeCity.push(userCity);
     localStorage.setItem("cities", JSON.stringify(storeCity))
     displayCityBtn();
-    curWeather();
+    curWeather(userCity);
 
 
 //load saved cities from local storage
@@ -82,7 +88,7 @@ function displayCityBtn() {
   var API_KEY = '10e1f68a65cde5b6f69c3c18e862cb60';
   var longitude = -78.509323;
   var latitude = 35.979309;
-    
+
    fetch(
     `https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lon=${longitude}&lat=${latitude}`,
     {
