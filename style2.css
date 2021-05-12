@@ -1,3 +1,8 @@
+body {
+    background: url(https://www.atlantatrails.com/wp-content/uploads/2018/01/cascade-falls-pine-mountain-trail-03.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
 header{
     display: flex;
     flex-wrap: wrap;
@@ -22,9 +27,16 @@ header{
 
 #results{
     height: 200px;
-    width: 50vw;
+    width: 200px;
     margin-bottom: 2px;
-    margin-top: 2px
+    margin-top: 2px;
+    justify-content: center;
+    align-items: center;
+    color: rgb(193, 204, 208);
+    background-color: rgb(62, 72, 57, 0.7);
+    font-weight: 400;
+    border-radius: 10px;
+    
 }
 
 #weather{
