@@ -75,4 +75,13 @@ header{
 }
 
 
-
+#RS{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(193, 204, 208);
+    background-color: rgb(62, 72, 57, 0.7);
+    font-weight: 400;
+    border-radius: 10px;
+    
+}

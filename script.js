@@ -36,16 +36,17 @@ function initMap(userCityLng,userCityLat) {
          var icon = data.weather[0].icon;
          var iUrl = `https://openweathermap.org/img/wn/${icon}.png`;
             var cityData = $(`
+
                      <h3>   ${date} <br> ${data.name}<img src="${iUrl}" alt="${data.weather[0].description}"</h3>
                      <p> Current Temp: <br>${data.main.temp}\u00B0 F </p>
                      <p> Wind Speed:  <br>${data.wind.speed} mph </p>
                      <p> Humidity: <br>${data.main.humidity} \% </p>`);
+          $("#weather").append(cityData);
           var userCityLng = data.coord.lon
           var userCityLat = data.coord.lat
           console.log(`userCity Longitude, Latitude:  ${userCityLng}, ${userCityLat}`)
           getTrailList(userCityLng, userCityLat)
           console.log('weather', data);
-          $("#weather").append(cityData);
 
      })
    
@@ -73,6 +74,7 @@ $('#userChoiceBtn').on('click', function (event) {
   localStorage.setItem('cities', JSON.stringify(storeCity))
   document.getElementById("weather").innerHTML = "";
   displayCityBtn();
+  document.getElementById('weather').innerHTML = ''
   curWeather(userCit)
 })
 //load saved cities from local storage
@@ -165,3 +167,4 @@ function getTrailList(userCityLng,userCityLat) {
 
 }
 loadCity()
+
