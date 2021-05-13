@@ -2,17 +2,26 @@
     --Ton: burlywood;
 }
 
+* {
+    font-family: 'Girassol', cursive;
+}
+
+body {
+    
+}
+
 header{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
+
 ::-webkit-input-placeholder {
     text-align: center;
   }
 
 #search-weather-container{
-  padding: 0rem 
+  padding: 0rem; 
 }
 
 #map{
@@ -28,12 +37,14 @@ header{
     height: 200px;
     width: 50vw;
     margin-bottom: 2px;
-    margin-top: 2px
+    margin-top: 2px;
+    background-color: var(--Ton);
 }
 
 #weather{
     height: 200px;
-    width: 50vw
+    width: 50vw;
+    background-color: var(--Ton);
 }
 
 #mappic{
