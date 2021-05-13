@@ -29,7 +29,7 @@ function curWeather(storeCity) {
       var icon = data.weather[0].icon;
       var iUrl = `https://openweathermap.org/img/wn/${icon}.png`;
       var cityData = $(`
-                     <h3> ${data.name}  ${date} <img src="${iUrl}" alt="${data.weather[0].description}"</h3>
+                     <h3 id='full' > ${data.name}  ${date} <img src="${iUrl}" alt="${data.weather[0].description}"</h3>
                      <p> Current Temp: ${data.main.temp}\u00B0 F </p>
                      <p> Wind Speed:  ${data.wind.speed} mph </p>
                      <p> Humidity: ${data.main.humidity} \% </p>`);
@@ -39,6 +39,17 @@ function curWeather(storeCity) {
 };
 
 //Add primary search (city) from page1 to local storage
+$('#userChoiceBtn').on('click', function (event) {
+  var userCit = $('#userInput').val();
+  storeCity.push(userCit);
+  localStorage.setItem('cities', JSON.stringify(storeCity))
+  displayCityBtn();
+  if ($('#full').length) {
+    console.log('full already')
+    $('#full').empty();
+  } else if (!$('#full').length){
+  curWeather(userCit)
+}}) 
 
 $("#john").on("click", function (event) {
   var userCity = $("#userInput").val();
@@ -52,13 +63,7 @@ $("#john").on("click", function (event) {
 
 });
 
-$('#userChoiceBtn').on('click', function (event) {
-  var userCit = $('#userInput').val();
-  storeCity.push(userCit);
-  localStorage.setItem('cities', JSON.stringify(storeCity))
-  displayCityBtn();
-  curWeather(userCit)
-})
+
 //load saved cities from local storage
 function loadCity() {
   var savedCity = localStorage.getItem("cities");
