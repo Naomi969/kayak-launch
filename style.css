@@ -2,25 +2,24 @@
     --Ton: burlywood;
 }
 
-
-
-* {
-    
-
-}
-
 body {
-    background-image: url(https://media-cdn.tripadvisor.com/media/photo-s/0b/b9/8f/19/a-serene-june-morning.jpg);
-    background-repeat: no-repeat;
-    background-size: 100%;
+    background: url(https://img2.goodfon.com/wallpaper/nbig/d/49/leto-les-tropa-priroda-311.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     font-size: 250%;
     width: auto;
+    height: 75%;
 }
 
 h1 {
-    text-align: center;
+    text-align: right;
     font-size: 200%;
-    background-color: var(--Ton);
+    color: rgb(193, 204, 208);
+    font-family: Georgia italic;
+    margin-top: 0px;
+    font-size: 75px;
 }
 
 div {
@@ -28,14 +27,54 @@ div {
     margin-bottom: 25px;
     max-height: 500px;
 }
-
-#ton, #youchoose, #chekum, #Box, #RS {
+ #RS, #chekum, #Box {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--Ton);
+    color: rgb(193, 204, 208);
+    background-color: rgb(62, 72, 57, 0.7);
+    font-weight: 400;
+    border-radius: 10px;
+    
+}
+#youchoose {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(179, 174, 174);
+    width: 350px;
+    height: 39px;
+    margin-left: 90px;
+    border-radius: 10px;
+    padding-top: 2px;
 }
 
+#ton  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(193, 204, 208);
+    font-family: Georgia italic;
+    background-color: rgb(62, 72, 57, 0.5); 
+    width: 550px;
+}
+#ton {
+    background-color: transparent;
+}
+#intro {
+    margin-top: 0px;
+    background-color: rgb(62, 72, 57, 0.7); 
+    align-items: flex-end;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+#john {
+    background-color: rgb(70, 67, 3);
+    border-radius: 10px;
+}
 
-
+#search-container {
+    margin-top: 155px;
+    margin-left: 100px;
+}
 
