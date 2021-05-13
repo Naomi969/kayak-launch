@@ -56,7 +56,6 @@ $("#john").on("click", function (event) {
   
   // getTrailandforcastdat(data.coord.lat, data.coord.lon
 
-
   window.location.href = 'index2.html'
 
 });
@@ -64,7 +63,10 @@ $("#john").on("click", function (event) {
 function insert() {
   var order = document.getElementById("#order");
   var lsit = document.createElement("li");
+  lsit.setAttribute("id", "lsit");
   lsit.appendChild(document.createTextNode("#userInput"));
+  document.getElementById("order").appendChild(lsit);
+  // order.appendChild(lsit);
 }
 
 $('#userChoiceBtn').on('click', function (event) {
