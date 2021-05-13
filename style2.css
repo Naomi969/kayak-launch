@@ -74,6 +74,12 @@ header{
     padding-left: 20px;
 }
 
+#userChoiceBtn {
+    color: white;
+    background-color: rgba(24, 34, 18, 0.9); 
+    margin-left: 5px;
+    width: 150px;
+}
 
 #RS{
     display: flex;
@@ -84,4 +90,13 @@ header{
     font-weight: 400;
     border-radius: 10px;
     
+#userInput {
+    background-color: rgb(179, 174, 174);
+    
+}
+.searchAgain {
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    margin-top: 15px;
 }
