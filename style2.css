@@ -18,10 +18,11 @@ header{
 
 #map{
     float: right;
-    width: 50vw;
+    width: 40vw;
     height: 402px;
     border: 2px solid #007780;
-    margin-top: 2px;
+    margin-top: 300px;
+    margin-right: 100px;
     
 }
 
@@ -40,8 +41,15 @@ header{
 }
 
 #weather{
-    height: 200px;
-    width: 50vw
+    height: auto;
+    width: 400px;
+    margin-left: 280px;
+    color: rgb(193, 204, 208);
+    background-color: rgb(62, 72, 57, 0.7);
+    font-weight: 400;
+    border-radius: 10px;
+    display:flexbox;
+   
 }
 
 #mappic{
@@ -49,6 +57,14 @@ header{
     height: 426px;
 }
 
+#weatherHead {
+    color: rgb(193, 204, 208);
+    background-color: rgb(62, 72, 57, 0.7);
+    font-weight: 400;
+    border-radius: 10px;
+    width: 400px;
+    margin-left: 280px;
+}
 .wcon{
     text-align: center;
 }
