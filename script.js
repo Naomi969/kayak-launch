@@ -60,15 +60,6 @@ $("#john").on("click", function (event) {
 
 });
 
-function insert() {
-  var order = document.getElementById("#order");
-  var lsit = document.createElement("li");
-  lsit.setAttribute("id", "lsit");
-  lsit.appendChild(document.createTextNode("#userInput"));
-  document.getElementById("order").appendChild(lsit);
-  // order.appendChild(lsit);
-}
-
 $('#userChoiceBtn').on('click', function (event) {
   var userCit = $('#userInput').val();
   storeCity.push(userCit);
@@ -89,6 +80,18 @@ function loadCity() {
   }
 };
 
+
+// WC Append Child
+
+function insert() {
+  var order = document.getElementById("#order");
+  var lsit = document.createElement("li");
+  lsit.setAttribute("id", "lsit");
+  lsit.appendChild(document.createTextNode("#userInput"));
+  document.getElementById("order").appendChild(lsit);
+  // order.appendChild(lsit);
+}
+
 //displays saved recent searches as button in Recent Searches on page1
 function displayCityBtn() {
     
@@ -99,7 +102,7 @@ function displayCityBtn() {
         newBtn.attr("data-cityName", storeCity[i]);
         newBtn.text(storeCity[i])
 
-        $("#Box").append(newBtn);
+        $("#order").append(newBtn);
     }  
     localStorage.setItem('cities', JSON.stringify(storeCity));
 }; 
