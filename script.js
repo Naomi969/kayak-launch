@@ -83,24 +83,24 @@ function loadCity() {
 
 // WC Append Child
 
-function insert() {
-  var order = document.getElementById("#order");
-  var lsit = document.createElement("li");
-  lsit.setAttribute("id", "lsit");
-  lsit.appendChild(document.createTextNode("#userInput"));
-  document.getElementById("order").appendChild(lsit);
-  // order.appendChild(lsit);
-}
+// function insert() {
+//   var order = document.getElementById("#order");
+//   var lsit = document.createElement("li");
+//   lsit.setAttribute("id", "lsit");
+//   lsit.appendChild(document.createTextNode("#userInput"));
+//   document.getElementById("order").appendChild(lsit);
+//   // order.appendChild(lsit);
+// }
 
 //displays saved recent searches as button in Recent Searches on page1
 function displayCityBtn() {
     
     for (var i = 0; i < storeCity.length; i++){
         var newBtn = $("<button>");
-        newBtn.attr("type", "button");
-        newBtn.attr("class", "list-group-item list-group-item-action cityBtn");
-        newBtn.attr("data-cityName", storeCity[i]);
-        newBtn.text(storeCity[i])
+        // newBtn.attr("type", "button");
+        // newBtn.attr("class", "list-group-item list-group-item-action cityBtn");
+        // newBtn.attr("data-cityName", storeCity[i]);
+        // newBtn.text(storeCity[i])
 
         $("#order").append(newBtn);
     }  
