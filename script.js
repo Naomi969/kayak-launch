@@ -52,18 +52,16 @@ $("#john").on("click", function (event) {
   localStorage.setItem("cities", JSON.stringify(storeCity))
   displayCityBtn();
   curWeather(userCity);
+  window.location.href = 'index2.html'
   $("#weather").append(cityData);
   // getTrailandforcastdat(data.coord.lat, data.coord.lon
-
-
-  window.location.href = 'index2.html'
-
 });
 
 $('#userChoiceBtn').on('click', function (event) {
   var userCit = $('#userInput').val();
   storeCity.push(userCit);
   localStorage.setItem('cities', JSON.stringify(storeCity))
+  document.getElementById("weather").innerHTML = "";
   displayCityBtn();
   curWeather(userCit)
 })
@@ -151,7 +149,7 @@ function getTrailList(userCityLng,userCityLat) {
     .catch((err) => {
       console.error(err);
     });
-
+/*
   var apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${API_KEY}`;
   fetch(apiUrl)
     .then(function (data) {
@@ -175,7 +173,7 @@ function getTrailList(userCityLng,userCityLat) {
       curWeatherContainer.append(`<h1>Humidity ${data.current.humidity}</h1>`);
 
 
-    });
+    });*/
 }
 //curWeather("Raleigh")
 loadCity()
