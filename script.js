@@ -35,17 +35,15 @@ function initMap() {
           var userCityLng = data.coord.lon
           var userCityLat = data.coord.lat
           console.log(`userCity Longitude, Latitude:  ${userCityLng}, ${userCityLat}`)
-      console.log('weather', data);
-      $("#weather").append(cityData);
+          getTrailList(userCityLng, userCityLat)
+          console.log('weather', data);
+          $("#weather").append(cityData);
 
      })
    
 };       
 
 //Add primary search (city) from page1 to local storage
-
-
-
 $("#john").on("click", function(event) {
     var userCity = $("#userInput").val();
     console.log(`CITY ENTERED: ${userCity}`);
@@ -85,28 +83,55 @@ function displayCityBtn() {
 }; 
 
   // info to allow lat and lon to grab location, as well as info for trrails
-  var API_KEY = '10e1f68a65cde5b6f69c3c18e862cb60';
-  var longitude = -78.509323;
-  var latitude = 35.979309;
+  // var API_KEY = '10e1f68a65cde5b6f69c3c18e862cb60';
 
-   fetch(
-    `https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lon=${longitude}&lat=${latitude}`,
-    {
-      method: 'GET',
-      headers: {
-        'x-rapidapi-key':
-          'KyNZyDwQySmsh71Zva51yAb90PL8p1YmArmjsns2ZSMTE7P2js',
-        'x-rapidapi-host': 'trailapi-trailapi.p.rapidapi.com',
-      },
+function getTrailList(userCityLng,userCityLat) {
+  console.log(`getTrailList is running`)
+  var requestTrailList = `https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lon=${userCityLng}&lat=${userCityLat}`
+  fetch(requestTrailList, {
+    "method": "GET",
+    "headers": {
+      "x-rapidapi-key": "KyNZyDwQySmsh71Zva51yAb90PL8p1YmArmjsns2ZSMTE7P2js",
+      "x-rapidapi-host": "trailapi-trailapi.p.rapidapi.com"
     }
-  )
-    .then((response) => {
-      console.log(response);
-      return response.json();
+  })
+    .then(function (response) {
+      console.log(response.status);
+      if (response.ok) {
+        console.log(`response to TrailsAPI was OK`);
+        response.json().then(function (data) {
+          console.log(`DATA FROM TRAILSAPI FETCH:  ${data}`);
+          console.log(`LENGTH OF DATA FROM TRAILSAPI FETCH:  ${data.results}`);
+          // var coOrdinatesPair = []
+          var coOrdinatesList = [];
+          var coOrds
+          if (data.results > 5) {
+            for (let i = 0; i < 5; i++) {
+              var coOrdsLon = data.data[i].lon;
+              var coOrdsLat = data.data[i].lat;
+              console.log(`ITERATION ${i} | LON:  ${coOrdsLon}`);
+              console.log(`ITERATION ${i} | LON:  ${coOrdsLat}`);
+              let coOrdinatesPair = [coOrdsLon, coOrdsLat];
+              coOrdinatesList.push([coOrdinatesPair]);
+              console.log(`> 5 coOrdinatesList --> ${coOrdinatesList}`)
+            } 
+          } else if (data.results <= 5 && data.results > 0) {
+            for (let i = 0; i < data.results.length; i++) {
+              var coOrdsLon = data.data[i].lon;
+              var coOrdsLat = data.data[i].lat;
+              console.log(`ITERATION ${i} | LON:  ${coOrdsLon}`);
+              console.log(`ITERATION ${i} | LON:  ${coOrdsLat}`);
+              let coOrdinatesPair = [coOrdsLon, coOrdsLat];
+              coOrdinatesList.push([coOrdinatesPair]);
+              console.log(`<= 5 coOrdinatesList --> ${coOrdinatesList}`)
+            }
+          } else {
+            // modal here displaying "NO RESULTS FOUND"
+            console.log(`NO RESULTS FOUND AT THIS LOCATION`);
+          }
+          console.log(`FINAL coOrdinatesList:  ${coOrdinatesList}`)
+          return coOrdinatesList
+        })
+      }
     })
-    .then((data) => {
-      console.log('data!!?!?! ', data);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
+}
