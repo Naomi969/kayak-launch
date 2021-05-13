@@ -12,24 +12,24 @@
 </head>
 <body>
 
-    <div class="row">
-        <h1 class="col s7 push-s5 z-depth-5">Welcome to Your Next Adventure!</h1>
+    <div class="row z-depth-1" id="intro">
+        <h1 class="col s7 push-s5">Welcome to Your Next Adventure!</h1>
     </div>
 
     <div class="row">
 
-        <div class="row">
-            <div class="col s6 push-s3">
-                <div class="row s12 z-depth-5" id="chekum">Where would you like to go boating?</div>
-                <div class="row s12 z-depth-5" id="youchoose"><input class="row s12 z-depth-5" type="text" id="userInput"></div>
-                <div class="row s12 z-depth-5" id="ton"><a class="btn-floating btn-large pulse #1b5e20" id="john"></a></div>
+        <div class="row" id="search-container">
+            <div class="col  push-s4">
+                <div class="row s5 z-depth-5" id="chekum">Where would you like to hike?</div>
+                <div class="row s12 z-depth-10" id="youchoose"><input class="row s12 z-depth-1" type="text" id="userInput"></div>
+                <div class="row s12 z-depth-10" id="ton"><a class="btn pulse #19521d" id="john">Search</a></div>
             </div>
         </div>
 
         <div class="row" id="">
-            <div class="col s6" id="Left">
-                <div class="row s12 z-depth-5" id="RS">Recent Searches</div>
-                <div class="row 12 z-depth-5" id="Box">
+            <div class="col push-s1 z-depth-5" id="Left">
+                <div class="row z-depth-5" id="RS">Recent Searches</div>
+                <div class="row " id="Box">
                     <ol class="row" id="order"></ol>
                 </div>
             </div>

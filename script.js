@@ -12,7 +12,7 @@ function initMap() {
   });
 };
 
-// //Current Weather function//
+//Current Weather function//
  var date = moment().format("L");
  var key = '957c1d427eb08dc32b2d83caeea47227'
  var storeCity = [];
@@ -41,31 +41,45 @@ function initMap() {
 
      })
    
-};       
+};
 
 //Add primary search (city) from page1 to local storage
-$("#john").on("click", function(event) {
-    var userCity = $("#userInput").val();
-    console.log(`CITY ENTERED: ${userCity}`);
-    storeCity.push(userCity);
-    localStorage.setItem("cities", JSON.stringify(storeCity))
-    displayCityBtn();
-    curWeather(userCity);
+
+$("#john").on("click", function (event) {
+  var userCity = $("#userInput").val();
+  console.log(`CITY ENTERED: ${userCity}`);
+  storeCity.push(userCity);
+  localStorage.setItem("cities", JSON.stringify(storeCity))
+  displayCityBtn();
+  curWeather(userCity);
+  $("#weather").append(cityData);
+  // getTrailandforcastdat(data.coord.lat, data.coord.lon
 
 
-//load saved cities from local storage
-function loadCity() {
-    var savedCity = localStorage.getItem("cities");
-    if (savedCity) {
-        city = JSON.parse(savedCity);
-        city.reverse();
-        curWeather(storeCity[0]);
-    }
-
-};
-window.location.href = 'index2.html'
+  window.location.href = 'index2.html'
 
 });
+
+$('#userChoiceBtn').on('click', function (event) {
+  var userCit = $('#userInput').val();
+  storeCity.push(userCit);
+  localStorage.setItem('cities', JSON.stringify(storeCity))
+  displayCityBtn();
+  curWeather(userCit)
+})
+//load saved cities from local storage
+function loadCity() {
+  var savedCity = localStorage.getItem("cities");
+
+  console.log('saved city? ', savedCity)
+  if (savedCity) {
+    city = JSON.parse(savedCity);
+    city.reverse();
+
+    console.log('what are you ', city)
+    curWeather(city[0]);
+  }
+};
 
 //displays saved recent searches as button in Recent Searches on page1
 function displayCityBtn() {
@@ -134,4 +148,34 @@ function getTrailList(userCityLng,userCityLat) {
         })
       }
     })
+    .catch((err) => {
+      console.error(err);
+    });
+
+  var apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${API_KEY}`;
+  fetch(apiUrl)
+    .then(function (data) {
+      return data.json();
+    })
+    .then(function (data) {
+      // List of all return data
+      console.log(data.timezone);
+      // List of Current Weather Info
+      // console.log(data.current)
+      // console.log(data.daily);
+      // console.log(`UVI: ${data.current.uvi}`);
+      // console.log(`TEMP: ${data.current.temp}`);
+      // console.log(`WIND_SPEED: ${data.current.wind_speed}`);
+      // console.log(`HUMIDITY: ${data.current.humidity}`);
+      var curWeatherContainer = $('#cur-weather-container');
+      console.log('curWeatherContainer:', curWeatherContainer);
+      curWeatherContainer.append(`<h1>Temperature ${data.current.temp}</h1>`);
+      curWeatherContainer.append(`<h1>UV Index ${data.current.uvi}</h1>`);
+      curWeatherContainer.append(`<h1>Wind Speed ${data.current.wind_speed}</h1>`);
+      curWeatherContainer.append(`<h1>Humidity ${data.current.humidity}</h1>`);
+
+
+    });
 }
+//curWeather("Raleigh")
+loadCity()
