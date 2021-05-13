@@ -53,12 +53,19 @@ $("#john").on("click", function (event) {
   displayCityBtn();
   curWeather(userCity);
   $("#weather").append(cityData);
+  
   // getTrailandforcastdat(data.coord.lat, data.coord.lon
 
 
   window.location.href = 'index2.html'
 
 });
+
+function insert() {
+  var order = document.getElementById("#order");
+  var lsit = document.createElement("li");
+  lsit.appendChild(document.createTextNode("#userInput"));
+}
 
 $('#userChoiceBtn').on('click', function (event) {
   var userCit = $('#userInput').val();
@@ -75,7 +82,6 @@ function loadCity() {
   if (savedCity) {
     city = JSON.parse(savedCity);
     city.reverse();
-
     console.log('what are you ', city)
     curWeather(city[0]);
   }
