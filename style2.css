@@ -18,11 +18,11 @@ header{
 
 #map{
     float: right;
-    width: 40vw;
+    width: 600px;
     height: 402px;
     border: 2px solid #007780;
-    margin-top: 300px;
-    margin-right: 100px;
+    margin-top: 150px;
+    margin-right: 10vw;
     
 }
 
@@ -43,7 +43,6 @@ header{
 #weather{
     height: auto;
     width: 400px;
-    margin-left: 280px;
     color: rgb(193, 204, 208);
     background-color: rgb(62, 72, 57, 0.7);
     font-weight: 400;
@@ -63,10 +62,12 @@ header{
     font-weight: 400;
     border-radius: 10px;
     width: 400px;
-    margin-left: 280px;
+    
 }
 .wcon{
     text-align: center;
+    margin-top: 100px;
+    margin-left: 10vw;
 }
 .temp .humidity .cr{
     display: inline-block;
@@ -74,8 +75,24 @@ header{
     padding-left: 20px;
 }
 
+#userChoiceBtn {
+    color: white;
+    background-color: rgb(70, 67, 3); 
+    margin-left: 5px;
+    width: 150px;
+}
 
-#RS{
+
+#userInput {
+    background-color: rgb(179, 174, 174);
+}
+.searchAgain {
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    margin-top: 15px;
+}
+#RS {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,5 +100,5 @@ header{
     background-color: rgb(62, 72, 57, 0.7);
     font-weight: 400;
     border-radius: 10px;
-    
-}
+ }   
+
