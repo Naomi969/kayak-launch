@@ -1,7 +1,18 @@
+:root {
+    --Ton: burlywood;
+}
+
 body {
     background: url(https://www.atlantatrails.com/wp-content/uploads/2018/01/cascade-falls-pine-mountain-trail-03.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
+    font-size: 100%;
+    width: auto;
+    height: 75%;
 }
+
 
 header{
     display: flex;
