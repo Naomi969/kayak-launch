@@ -1,5 +1,7 @@
 :root {
     --Ton: burlywood;
+    --Light: rgb(193, 204, 208);
+    --Dark: rgb(62, 72, 57, 0.7);
 }
 
 * {

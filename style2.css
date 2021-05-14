@@ -33,8 +33,12 @@ header{
     text-align: center;
   }
 
-#search-weather-container{
+#weatherContainer{
   padding: 0rem 
+}
+
+.Mark {
+    background-color: var(--Ton);
 }
 
 #map{
