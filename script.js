@@ -97,10 +97,10 @@ function displayCityBtn() {
     
     for (var i = 0; i < storeCity.length; i++){
         var newBtn = $("<button>");
-        // newBtn.attr("type", "button");
-        // newBtn.attr("class", "list-group-item list-group-item-action cityBtn");
-        // newBtn.attr("data-cityName", storeCity[i]);
-        // newBtn.text(storeCity[i])
+        newBtn.attr("type", "button");
+        newBtn.attr("class", "list-group-item list-group-item-action cityBtn");
+        newBtn.attr("data-cityName", storeCity[i]);
+        newBtn.text(storeCity[i])
 
         $("#order").append(newBtn);
     }  
@@ -190,3 +190,5 @@ function getTrailList(userCityLng,userCityLat) {
 }
 //curWeather("Raleigh")
 loadCity()
+
+
