@@ -27,6 +27,7 @@ div {
     margin-bottom: 25px;
     max-height: 500px;
 }
+
  #RS, #chekum, #Box {
     display: flex;
     justify-content: center;
@@ -37,6 +38,7 @@ div {
     border-radius: 10px;
     
 }
+
 #youchoose {
     display: flex;
     justify-content: center;

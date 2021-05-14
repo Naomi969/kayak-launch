@@ -8,6 +8,7 @@ header{
     flex-wrap: wrap;
     justify-content: center;
 }
+
 ::-webkit-input-placeholder {
     text-align: center;
   }
