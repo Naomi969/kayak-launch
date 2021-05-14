@@ -2,6 +2,15 @@
     --Ton: burlywood;
 }
 
+* {
+    font-family: 'Girassol', cursive;
+}
+
+#input {
+    background-color: #000;
+    padding: 10px;
+}
+
 body {
     background: url(https://www.atlantatrails.com/wp-content/uploads/2018/01/cascade-falls-pine-mountain-trail-03.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
