@@ -82,18 +82,9 @@ header{
     width: 150px;
 }
 
-#RS{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: rgb(193, 204, 208);
-    background-color: rgb(62, 72, 57, 0.7);
-    font-weight: 400;
-    border-radius: 10px;
-    
+
 #userInput {
     background-color: rgb(179, 174, 174);
-    
 }
 .searchAgain {
     display: flex;
@@ -101,3 +92,13 @@ header{
     align-items: center;  
     margin-top: 15px;
 }
+#RS {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(193, 204, 208);
+    background-color: rgb(62, 72, 57, 0.7);
+    font-weight: 400;
+    border-radius: 10px;
+ }   
+
