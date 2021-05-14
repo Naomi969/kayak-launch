@@ -1,8 +1,8 @@
 :root {
-    --Ton: burlywood;
+    --Ton: rgba(192, 135, 60, 0.493);
     --Light: rgb(193, 204, 208);
     --Dark: rgb(62, 72, 57, 0.7);
-}
+}   
 
 * {
     font-family: 'Girassol', cursive;
@@ -60,6 +60,11 @@ header{
     font-weight: 400;
     border-radius: 10px;
     
+}
+
+#scamp, #suit {
+    background-color: var(--Ton);
+    font-size: 200%;
 }
 
 #weather{
