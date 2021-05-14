@@ -1,5 +1,7 @@
 :root {
     --Ton: burlywood;
+    --Light: rgb(193, 204, 208);
+    --Dark: rgb(62, 72, 57, 0.7);
 }
 
 * {
@@ -37,15 +39,11 @@ header{
   padding: 0rem 
 }
 
-.Mark {
-    background-color: var(--Ton);
-}
-
 #map{
     float: right;
     width: 50vw;
     height: 402px;
-    border: 2px solid #007780;
+    border: 2px solid var(--Ton);
     margin-top: 2px;
     
 }
@@ -57,8 +55,8 @@ header{
     margin-top: 2px;
     justify-content: center;
     align-items: center;
-    color: rgb(193, 204, 208);
-    background-color: rgb(62, 72, 57, 0.7);
+    color: var(--Light);
+    background-color: var(--Dark);
     font-weight: 400;
     border-radius: 10px;
     
