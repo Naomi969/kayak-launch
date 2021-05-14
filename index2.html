@@ -20,27 +20,28 @@
 
 <body>
     <div class='row'>
-        <section class="col s6" id='search-weather-container'>
-            <div class="col s6 z-depth-5 center-align" id='results'>
-                <h5 class="z-depth-2">Top Results</h5>
-                <ul class="z-depth-2">
-                    <li id='tSearch1'>Jordan Lake</li>
-                    <li id='tSearch2'>Johnson Lake</li>
-                    <li id='tSearch3'>Bird Lake</li>
+        <div class="col s6 z-depth-5 center-align" id='results'>
+            <h5 class="z-depth-2">Top Results</h5>
+            <ul class="z-depth-2">
+                <li id='tSearch1'>Jordan Lake</li>
+                <li id='tSearch2'>Johnson Lake</li>
+                <li id='tSearch3'>Bird Lake</li>
 
-                </ul>
-            </div>
-
-            <div class="z-depth-5" id="weatherContainer">
-                <div class='wcon'>
-                    <h5 class="center-align z-depth-5">Current Weather</h5>
-                    <div class='temp' id='weather'></div>
-                </div>
-            </div>
-        </section>
+            </ul>
+        </div>
 
         <div class="col s6 z-depth-5" id='map'>
         </div>
+    </div>
+
+    <div class="row">
+        <div class="z-depth-5" id="weatherContainer">
+            <div class='wcon'>
+                <h5 class="center-align z-depth-5">Current Weather</h5>
+                <div class='temp' id='weather'></div>
+            </div>
+        </div>
+
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
