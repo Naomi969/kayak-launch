@@ -1,5 +1,5 @@
 :root {
-    --Ton: rgba(192, 135, 60, 0.493);
+    --Ton: rgb(253, 253, 253);
     --Light: rgb(193, 204, 208);
     --Dark: rgb(62, 72, 57, 0.7);
     --But: rgb(62, 72, 57, 0.5);
@@ -60,22 +60,20 @@ header{
     text-align: center;
   }
 
-#weatherContainer{
+/* #weatherContainer{
   padding: 0rem 
-}
+} */
 
 #map{
-    float: right;
-    width: 600px;
+    
+    width: 700px;
     height: 402px;
 
     border: 2px solid var(--Ton);
     margin-top: 2px;
 
-    border: 2px solid #007780;
-    margin-top: 150px;
-    margin-right: 10vw;
-
+    border: 2px solid var(--But);
+    margin-left: 25vw;
     
 }
 
@@ -101,30 +99,27 @@ header{
     height: auto;
     width: 400px;
     color: rgb(193, 204, 208);
-    background-color: rgb(62, 72, 57, 0.7);
     font-weight: 400;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     display:flexbox;
-   
+    
 }
 
-#mappic{
-    width: 250px;
-    height: 426px;
-}
+
 
 #weatherHead {
     color: rgb(193, 204, 208);
-    background-color: rgb(62, 72, 57, 0.7);
+    
     font-weight: 400;
-    border-radius: 10px;
-    width: 400px;
+    /* border-radius: 10px;
+    width: 400px; */
     
 }
 .wcon{
+    background-color: rgb(62, 72, 57, 0.7);
     text-align: center;
-    margin-top: 100px;
-    margin-left: 10vw;
+   
+    margin: 100px;
 }
 .temp, .humidity, .cr{
     display: inline-block;
@@ -149,13 +144,23 @@ header{
     align-items: center;  
     margin-top: 15px;
 }
-#RS {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: rgb(193, 204, 208);
-    background-color: rgb(62, 72, 57, 0.7);
-    font-weight: 400;
-    border-radius: 10px;
- }   
 
+#left{
+    background-color: rgba(1, 2, 0, 0.7);
+    align-items: center;
+}
+#RS {
+    font-weight: 400;
+}   
+
+#box{
+    height: 200px;
+    width: 200px;
+
+}
+
+.cityBtn{
+    height: 50px;
+    width: 200px;
+    background-color: rgb(70, 67, 3) ;
+}

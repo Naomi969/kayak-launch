@@ -1,5 +1,5 @@
 :root {
-    --Ton: rgba(192, 135, 60, 0.493);
+    --Ton: rgb(192, 135, 60);
     --Light: rgb(193, 204, 208);
     --Dark: rgb(62, 72, 57, 0.7);
     --But: rgb(62, 72, 57, 0.5);
@@ -49,11 +49,12 @@ div {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(179, 174, 174);
+    background-color: rgb(126, 124, 124);
     width: 350px;
     height: 39px;
     margin-left: 90px;
     padding-top: 2px;
+    
 }
 
 #ton  {
