@@ -8,11 +8,17 @@
 
 * {
     font-family: 'Girassol', cursive;
+    color: var(--Ton);
+    border-radius: 25px;
 }
 
-#input {
-    background-color: #000;
-    padding: 10px;
+#john2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(70, 67, 3);
+    width: 550px;
+    border-radius: 25px;
 }
 
 body {
@@ -32,6 +38,7 @@ body {
     align-items: center;
     background-color: var(--But); 
     width: 550px;
+    color: var(--Ton);
 }
 
 #userInput {
@@ -76,7 +83,6 @@ header{
     color: var(--Light);
     background-color: var(--Dark);
     font-weight: 400;
-    border-radius: 10px;
     
 }
 

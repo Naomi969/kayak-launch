@@ -8,6 +8,7 @@
 * {
     font-family: 'Girassol', cursive;
     color: var(--Ton);
+    border-radius: 25px;
 }
 
 
@@ -41,7 +42,6 @@ div {
     align-items: center;
     background-color: var(--Dark);
     font-weight: 400;
-    border-radius: 10px;
     
 }
 
@@ -53,7 +53,6 @@ div {
     width: 350px;
     height: 39px;
     margin-left: 90px;
-    border-radius: 10px;
     padding-top: 2px;
 }
 
@@ -72,9 +71,10 @@ div {
     margin-bottom: 0px;
     margin-top: 0px;
 }
+
 #john {
     background-color: rgb(70, 67, 3);
-    border-radius: 10px;
+    border-radius: 25px;
 }
 
 #search-container {
