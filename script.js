@@ -93,7 +93,13 @@ $("#john").on("click", function (event) {
   curWeather(userCity);
   window.location.href = 'index2.html'
   $("#weather").append(cityData);
+  
   // getTrailandforcastdat(data.coord.lat, data.coord.lon
+
+
+
+
+
 
 });
 
@@ -114,11 +120,22 @@ function loadCity() {
   if (savedCity) {
     city = JSON.parse(savedCity);
     city.reverse();
-
     console.log('what are you ', city)
     curWeather(city[0]);
   }
 };
+
+
+// WC Append Child
+
+// function insert() {
+//   var order = document.getElementById("#order");
+//   var lsit = document.createElement("li");
+//   lsit.setAttribute("id", "lsit");
+//   lsit.appendChild(document.createTextNode("#userInput"));
+//   document.getElementById("order").appendChild(lsit);
+//   // order.appendChild(lsit);
+// }
 
 //displays saved recent searches as button in Recent Searches on page1
 function displayCityBtn() {
@@ -130,7 +147,7 @@ function displayCityBtn() {
         newBtn.attr("data-cityName", storeCity[i]);
         newBtn.text(storeCity[i])
 
-        $("#Box").append(newBtn);
+        $("#order").append(newBtn);
     }  
     localStorage.setItem('cities', JSON.stringify(storeCity));
 }; 
@@ -197,3 +214,9 @@ function getTrailList(userCityLng,userCityLat) {
 
 }
 loadCity()
+
+
+
+
+
+
