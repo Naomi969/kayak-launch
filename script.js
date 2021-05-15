@@ -1,24 +1,50 @@
+var coOrdinatesCenter
+var map;
+var marker;
+var markerPosition;
+var coOrdinatesList = [];
+var coOrdinateExtract;
+var coOrdinatesMarker = [];
+var coOrdinatesMarkerList = [];
+var bounds;
+var markerContent;
+
+// EXAMPLE COORDINATES:
+// var testLatLon = { lat: 35.8268180464077, lng: -79.2584376142173 }
+// var coOrdinatesCenter = { lat: userCityLat, lng: userCityLng }
+
 // MAP INTEGRATION
-function initMap(userCityLng,userCityLat) {
-  // var somewhereNearMandale = { lat: 35.8268180464077, lng: -79.2584376142173 }
-  //  ^^^ this can be any variable with an array of lat/long object values
-  // var coOrdCenter = (`${userCityLng}, ${userCityLat}`);
-  var coOrdCenter = {
-    lat: parseFloat(userCityLat),
-    lng: parseFloat(userCityLng)
-  }
-  console.log(`coOrdCenter:  ${coOrdCenter}`)
+
+function initMap(coOrdinatesCenter, coOrdinatesList) {
+  bounds = new google.maps.LatLngBounds();
+
+  //markerContent = 
+
   const map = new google.maps.Map(document.getElementById('map'), {
     zoom: 12,
-    center: new google.maps.LatLng(parseFloat(userCityLat), parseFloat(userCityLng)),
-    // center: coOrdCenter,
+    center: coOrdinatesCenter,
   });
-  //map.setCenter(coOrdCenter);
-  const marker = new google.maps.Marker({
-    position: somewhereNearMandale,
+  console.log(`INSIDE initMap | coOrdinatesList LENGTH:  ${coOrdinatesList.length}`)
+  for (let i = 0; i < coOrdinatesList.length; i++) {
+    coOrdinateExtractLat = coOrdinatesList[i].lat;
+    coOrdinateExtractLng = coOrdinatesList[i].lng;
+    coOrdinatesMarker = `${parseFloat(coOrdinateExtractLat)}, ${parseFloat(coOrdinateExtractLng)}`;
+    markerPosition = new google.maps.LatLng(parseFloat(coOrdinateExtractLat), parseFloat(coOrdinateExtractLng));
+    bounds.extend(markerPosition);
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(parseFloat(coOrdinateExtractLat), parseFloat(coOrdinateExtractLng)),
+      map: map,
+      //title: `LOCATION ${[i]}`
+    });
+    ;
+  };
+  marker = new google.maps.Marker({
+    position: coOrdinatesCenter,
     map: map,
   });
+  map.fitBounds(bounds);
 };
+
 
 //Current Weather function//
  var date = moment().format("L");
@@ -44,13 +70,16 @@ function initMap(userCityLng,userCityLat) {
           $("#weather").append(cityData);
           var userCityLng = data.coord.lon
           var userCityLat = data.coord.lat
-          console.log(`userCity Longitude, Latitude:  ${userCityLng}, ${userCityLat}`)
+          coOrdinatesCenter = { lat: userCityLat, lng: userCityLng }
+          //initMap(coOrdinatesCenter);
+          console.log(`INSIDE curWeather | coOrdinatesCenter:  ${JSON.stringify(coOrdinatesCenter)}`);
           getTrailList(userCityLng, userCityLat)
           console.log('weather', data);
+          return coOrdinatesCenter;
 
      })
-   
 };
+
 
 //Add primary search (city) from page1 to local storage
 
@@ -141,39 +170,40 @@ function getTrailList(userCityLng,userCityLat) {
       if (response.ok) {
         console.log(`response to TrailsAPI was OK`);
         response.json().then(function (data) {
-          console.log(`DATA FROM TRAILSAPI FETCH:  ${data}`);
           console.log(`LENGTH OF DATA FROM TRAILSAPI FETCH:  ${data.results}`);
+          coOrdinatesMarkerList.length = 0;
+          coOrdinatesList.length = 0;
           var coOrdinatesPair = new Object();
-          // var coOrdinatesList = [];
-          var coOrdinatesList = [];
-          var coOrds
           if (data.results > 5) {
             for (let i = 0; i < 5; i++) {
               var coOrdsLon = data.data[i].lon;
               var coOrdsLat = data.data[i].lat;
               // console.log(`ITERATION ${i} | LON:  ${coOrdsLon}`);
               // console.log(`ITERATION ${i} | LON:  ${coOrdsLat}`);
-              coOrdinatesPair.lat = coOrdsLat;
-              coOrdinatesPair.lng = coOrdsLon;
+              coOrdinatesPair = { lat: coOrdsLat, lng: coOrdsLon };
+              coOrdinatesMarker[0] = parseFloat(coOrdsLat);
+              coOrdinatesMarker[1] = parseFloat(coOrdsLon);
               coOrdinatesList.push(coOrdinatesPair);
-              // console.log(`> 5 coOrdinatesList --> ${JSON.stringify(coOrdinatesList)}`)
+              coOrdinatesMarkerList.push(coOrdinatesMarker);
             } 
-          } else if (data.results <= 5 && data.results > 0) {
-            for (let i = 0; i < data.results.length; i++) {
+          } else if (data.results <= 5) {
+            for (let i = 0; i < data.results; i++) {
               var coOrdsLon = data.data[i].lon;
               var coOrdsLat = data.data[i].lat;
               // console.log(`ITERATION ${i} | LON:  ${coOrdsLon}`);
               // console.log(`ITERATION ${i} | LON:  ${coOrdsLat}`);
-              coOrdinatesPair.lat = coOrdsLat;
-              coOrdinatesPair.lng = coOrdsLon;
+              coOrdinatesPair = { lat: coOrdsLat, lng: coOrdsLon };
+              coOrdinatesMarker[0] = parseFloat(coOrdsLat);
+              coOrdinatesMarker[1] = parseFloat(coOrdsLon);
               coOrdinatesList.push(coOrdinatesPair);
-              // console.log(`<= 5 coOrdinatesList --> ${coOrdinatesList}`)
+              coOrdinatesMarkerList.push(coOrdinatesMarker);
             }
           } else {
             // modal here displaying "NO RESULTS FOUND"
             console.log(`NO RESULTS FOUND AT THIS LOCATION`);
           }
           console.log(`FINAL coOrdinatesList:  ${JSON.stringify(coOrdinatesList)}`)
+          initMap(coOrdinatesCenter, coOrdinatesList);
           return coOrdinatesList
         })
       }
@@ -184,6 +214,8 @@ function getTrailList(userCityLng,userCityLat) {
 
 }
 loadCity()
+
+
 
 
 
