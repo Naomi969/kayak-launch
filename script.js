@@ -6,6 +6,8 @@ var coOrdinatesList = [];
 var coOrdinateExtract;
 var coOrdinatesMarker = [];
 var coOrdinatesMarkerList = [];
+var bounds;
+var markerContent;
 
 // EXAMPLE COORDINATES:
 // var testLatLon = { lat: 35.8268180464077, lng: -79.2584376142173 }
@@ -14,7 +16,10 @@ var coOrdinatesMarkerList = [];
 // MAP INTEGRATION
 
 function initMap(coOrdinatesCenter, coOrdinatesList) {
-  //var bounds = new google.maps.LatLngBounds();
+  bounds = new google.maps.LatLngBounds();
+
+  //markerContent = 
+
   const map = new google.maps.Map(document.getElementById('map'), {
     zoom: 12,
     center: coOrdinatesCenter,
@@ -24,18 +29,20 @@ function initMap(coOrdinatesCenter, coOrdinatesList) {
     coOrdinateExtractLat = coOrdinatesList[i].lat;
     coOrdinateExtractLng = coOrdinatesList[i].lng;
     coOrdinatesMarker = `${parseFloat(coOrdinateExtractLat)}, ${parseFloat(coOrdinateExtractLng)}`;
-    markerPosition = new google.maps.LatLng(coOrdinatesMarker);
+    markerPosition = new google.maps.LatLng(parseFloat(coOrdinateExtractLat), parseFloat(coOrdinateExtractLng));
+    bounds.extend(markerPosition);
     marker = new google.maps.Marker({
       position: new google.maps.LatLng(parseFloat(coOrdinateExtractLat), parseFloat(coOrdinateExtractLng)),
       map: map,
       //title: `LOCATION ${[i]}`
     });
-    //bounds.extend(markerPosition);
+    ;
   };
   marker = new google.maps.Marker({
     position: coOrdinatesCenter,
     map: map,
   });
+  map.fitBounds(bounds);
 };
 
 
@@ -146,8 +153,9 @@ function getTrailList(userCityLng,userCityLat) {
       if (response.ok) {
         console.log(`response to TrailsAPI was OK`);
         response.json().then(function (data) {
-          console.log(`DATA FROM TRAILSAPI FETCH:  ${data}`);
           console.log(`LENGTH OF DATA FROM TRAILSAPI FETCH:  ${data.results}`);
+          coOrdinatesMarkerList.length = 0;
+          coOrdinatesList.length = 0;
           var coOrdinatesPair = new Object();
           if (data.results > 5) {
             for (let i = 0; i < 5; i++) {
