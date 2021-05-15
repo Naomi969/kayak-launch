@@ -12,7 +12,7 @@
     border-radius: 25px;
 }
 
-#userChoiceBtn {
+#userChoiceBtn, #userInput {
     display: flex;
     justify-content: center;
     align-items: center;
