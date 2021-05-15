@@ -6,22 +6,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Girassol&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style2.css">
-    <title>Kayak Launch Results</title>
+    <title>Adventure Finder Results</title>
 </head>
 <header>
     <span class='searchAgain'>
         <label for="text"></label>
-        <input type="text" id="userInput" name="city/state" placeholder="Search Again"><br><br>
-        <button id='userChoiceBtn' class="btn waves-effect waves-light center-align" type="submit" form="form1"
-            value="Submit">Submit</button>
+        <div class="row s12 z-depth-5" id="userInput"><input class="row s12 z-depth-1" type="text" id="userInput" placeholder="Search Again"></div>
+        <div class="row s12 z-depth-5" id="ton"><a class="btn #19521d waves-effect waves-light center-align" id="userChoiceBtn" type="submit" form="form1" value="Submit">Search</a></div>
     </span>
 </header>
 
 <body>
     <div class='row'>
+
+        <div class="col s3 z-depth-5 center-align" id='results'>
+            <h5 class="z-depth-2" id="suit">Top Results</h5>
+            <ul class="z-depth-2" id="scamp">
+                <li id='tSearch1'>Jordan Lake</li>
+                <li id='tSearch2'>Johnson Lake</li>
+                <li id='tSearch3'>Bird Lake</li>
+
+            </ul>
+        </div>
+
+        <div class="col s6 z-depth-5" id='map'>
+        </div>
+    </div>
+
         <section class="col s6" id='search-weather-container'>
-            <div class="center-align" id='results'>
+           <!-- <div class="center-align" id='results'> 
                 <h5>Top Results</h5>
                 <ul>
                     <li id='tSearch1'>Jordan Lake</li>
@@ -29,17 +45,23 @@
                     <li id='tSearch3'>Bird Lake</li>
 
                 </ul>
-            </div>
+            </div>-->
 
             <div id="weatherContainer">
                 <div class='wcon'>
-                    <h5 class="center-align">Current Weather</h5>
+                    <h5 class="center-align" id="weatherHead">Current Weather</h5>
                     <div class='temp' id='weather'></div>
                 </div>
             </div>
         </section>
 
-        <div class="col s6" id='map'>
+
+    <div class="row">
+        <div class="z-depth-5" id="weatherContainer">
+            <div class='wcon col s6 push-s3' id="splitz">
+                <h5 class="center-align z-depth-5">Current Weather</h5>
+                <div class='temp' id='weather'></div>
+            </div>
         </div>
 
         <div class="row" id="">
@@ -49,6 +71,7 @@
                 </div>
             </div>
         </div>
+
 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>

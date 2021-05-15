@@ -1,6 +1,16 @@
 :root {
-    --Ton: burlywood;
+    --Ton: rgba(192, 135, 60, 0.493);
+    --Light: rgb(193, 204, 208);
+    --Dark: rgb(62, 72, 57, 0.7);
+    --But: rgb(62, 72, 57, 0.5);
 }
+
+* {
+    font-family: 'Girassol', cursive;
+    color: var(--Ton);
+    border-radius: 25px;
+}
+
 
 body {
     background: url(https://img2.goodfon.com/wallpaper/nbig/d/49/leto-les-tropa-priroda-311.jpg) no-repeat center center fixed;
@@ -16,8 +26,6 @@ body {
 h1 {
     text-align: right;
     font-size: 200%;
-    color: rgb(193, 204, 208);
-    font-family: Georgia italic;
     margin-top: 0px;
     font-size: 75px;
 }
@@ -27,16 +35,16 @@ div {
     margin-bottom: 25px;
     max-height: 500px;
 }
+
  #RS, #chekum, #Box {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: rgb(193, 204, 208);
-    background-color: rgb(62, 72, 57, 0.7);
+    background-color: var(--Dark);
     font-weight: 400;
-    border-radius: 10px;
     
 }
+
 #youchoose {
     display: flex;
     justify-content: center;
@@ -45,7 +53,6 @@ div {
     width: 350px;
     height: 39px;
     margin-left: 90px;
-    border-radius: 10px;
     padding-top: 2px;
 }
 
@@ -53,24 +60,20 @@ div {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: rgb(193, 204, 208);
-    font-family: Georgia italic;
-    background-color: rgb(62, 72, 57, 0.5); 
     width: 550px;
 }
-#ton {
-    background-color: transparent;
-}
+
 #intro {
     margin-top: 0px;
-    background-color: rgb(62, 72, 57, 0.7); 
+    background-color: var(--Dark); 
     align-items: flex-end;
     margin-bottom: 0px;
     margin-top: 0px;
 }
+
 #john {
     background-color: rgb(70, 67, 3);
-    border-radius: 10px;
+    border-radius: 25px;
 }
 
 #search-container {

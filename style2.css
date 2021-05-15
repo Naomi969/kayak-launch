@@ -1,6 +1,53 @@
+:root {
+    --Ton: rgba(192, 135, 60, 0.493);
+    --Light: rgb(193, 204, 208);
+    --Dark: rgb(62, 72, 57, 0.7);
+    --But: rgb(62, 72, 57, 0.5);
+}
+ 
+
+* {
+    font-family: 'Girassol', cursive;
+    color: var(--Ton);
+    border-radius: 25px;
+}
+
+#userChoiceBtn, #userInput {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(70, 67, 3);
+    width: 550px;
+    border-radius: 25px;
+}
+
 body {
     background: url(https://www.atlantatrails.com/wp-content/uploads/2018/01/cascade-falls-pine-mountain-trail-03.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
+    font-size: 100%;
+    width: auto;
+    height: 75%;
+}
+
+#userChoiceBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--But); 
+    width: 550px;
+    color: var(--Ton);
+}
+
+#userInput {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--Light); 
+    width: 550px;
+    color: var(--Dark);
 }
 
 header{
@@ -8,20 +55,27 @@ header{
     flex-wrap: wrap;
     justify-content: center;
 }
+
 ::-webkit-input-placeholder {
     text-align: center;
   }
 
-#search-weather-container{
+#weatherContainer{
   padding: 0rem 
 }
 
 #map{
     float: right;
-    width: 50vw;
+    width: 600px;
     height: 402px;
-    border: 2px solid #007780;
+
+    border: 2px solid var(--Ton);
     margin-top: 2px;
+
+    border: 2px solid #007780;
+    margin-top: 150px;
+    margin-right: 10vw;
+
     
 }
 
@@ -32,16 +86,26 @@ header{
     margin-top: 2px;
     justify-content: center;
     align-items: center;
+    color: var(--Light);
+    background-color: var(--Dark);
+    font-weight: 400;
+    
+}
+
+#scamp, #suit, #splitz {
+    background-color: var(--Dark);
+    font-size: 200%;
+}
+
+#weather{
+    height: auto;
+    width: 400px;
     color: rgb(193, 204, 208);
     background-color: rgb(62, 72, 57, 0.7);
     font-weight: 400;
     border-radius: 10px;
-    
-}
-
-#weather{
-    height: 200px;
-    width: 50vw
+    display:flexbox;
+   
 }
 
 #mappic{
@@ -49,17 +113,43 @@ header{
     height: 426px;
 }
 
+#weatherHead {
+    color: rgb(193, 204, 208);
+    background-color: rgb(62, 72, 57, 0.7);
+    font-weight: 400;
+    border-radius: 10px;
+    width: 400px;
+    
+}
 .wcon{
     text-align: center;
+    margin-top: 100px;
+    margin-left: 10vw;
 }
-.temp .humidity .cr{
+.temp, .humidity, .cr{
     display: inline-block;
     padding: 10px;
     padding-left: 20px;
 }
 
+#userChoiceBtn {
+    color: white;
+    background-color: rgb(70, 67, 3); 
+    margin-left: 5px;
+    width: 150px;
+}
 
-#RS{
+
+#userInput {
+    background-color: rgb(179, 174, 174);
+}
+.searchAgain {
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    margin-top: 15px;
+}
+#RS {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -67,5 +157,5 @@ header{
     background-color: rgb(62, 72, 57, 0.7);
     font-weight: 400;
     border-radius: 10px;
-    
-}
+ }   
+
