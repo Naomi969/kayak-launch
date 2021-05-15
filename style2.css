@@ -2,7 +2,9 @@
     --Ton: rgba(192, 135, 60, 0.493);
     --Light: rgb(193, 204, 208);
     --Dark: rgb(62, 72, 57, 0.7);
-}   
+    --But: rgb(62, 72, 57, 0.5);
+}
+ 
 
 * {
     font-family: 'Girassol', cursive;
@@ -24,6 +26,22 @@ body {
     height: 75%;
 }
 
+#userChoiceBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--But); 
+    width: 550px;
+}
+
+#userInput {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--Light); 
+    width: 550px;
+    color: var(--Dark);
+}
 
 header{
     display: flex;
@@ -63,7 +81,7 @@ header{
 }
 
 #scamp, #suit, #splitz {
-    background-color: var(--Ton);
+    background-color: var(--Dark);
     font-size: 200%;
 }
 
@@ -80,7 +98,7 @@ header{
 .wcon{
     text-align: center;
 }
-.temp .humidity .cr{
+.temp, .humidity, .cr{
     display: inline-block;
     padding: 10px;
     padding-left: 20px;
