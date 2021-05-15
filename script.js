@@ -1,5 +1,7 @@
 var coOrdinatesCenter
 var map;
+var markers;
+var coOrdinatesList;
 
 //var testLatLon = { lat: 35.8268180464077, lng: -79.2584376142173 }
 // var coOrdinatesCenter = { lat: userCityLat, lng: userCityLng }
@@ -134,7 +136,7 @@ function getTrailList(userCityLng,userCityLat) {
           console.log(`LENGTH OF DATA FROM TRAILSAPI FETCH:  ${data.results}`);
           var coOrdinatesPair = new Object();
           // var coOrdinatesList = [];
-          var coOrdinatesList = [];
+          coOrdinatesList = [];
           var coOrds
           if (data.results > 5) {
             for (let i = 0; i < 5; i++) {
@@ -142,19 +144,22 @@ function getTrailList(userCityLng,userCityLat) {
               var coOrdsLat = data.data[i].lat;
               // console.log(`ITERATION ${i} | LON:  ${coOrdsLon}`);
               // console.log(`ITERATION ${i} | LON:  ${coOrdsLat}`);
-              coOrdinatesPair.lat = coOrdsLat;
-              coOrdinatesPair.lng = coOrdsLon;
+              // coOrdinatesPair.lat = coOrdsLat;
+              // coOrdinatesPair.lng = coOrdsLon;
+              coOrdinatesPair = { lat: coOrdsLat, lng: coOrdsLon };
               coOrdinatesList.push(coOrdinatesPair);
               // console.log(`> 5 coOrdinatesList --> ${JSON.stringify(coOrdinatesList)}`)
             } 
-          } else if (data.results <= 5 && data.results > 0) {
-            for (let i = 0; i < data.results.length; i++) {
+          } else if (data.results <= 5) {
+            console.log(`INSIDE else if`)
+            for (let i = 0; i < data.results; i++) {
               var coOrdsLon = data.data[i].lon;
               var coOrdsLat = data.data[i].lat;
-              // console.log(`ITERATION ${i} | LON:  ${coOrdsLon}`);
-              // console.log(`ITERATION ${i} | LON:  ${coOrdsLat}`);
-              coOrdinatesPair.lat = coOrdsLat;
-              coOrdinatesPair.lng = coOrdsLon;
+              console.log(`ITERATION ${i} | LON:  ${coOrdsLon}`);
+              console.log(`ITERATION ${i} | LON:  ${coOrdsLat}`);
+              //coOrdinatesPair.lat = coOrdsLat;
+              //coOrdinatesPair.lng = coOrdsLon;
+              coOrdinatesPair = { lat: coOrdsLat, lng: coOrdsLon };
               coOrdinatesList.push(coOrdinatesPair);
               // console.log(`<= 5 coOrdinatesList --> ${coOrdinatesList}`)
             }
