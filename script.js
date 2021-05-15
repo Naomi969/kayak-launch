@@ -45,7 +45,7 @@ function initMap() {
 
 //Add primary search (city) from page1 to local storage
 
-$("#john").on("click", function (event) {
+$(".john").on("click", function (event) {
   var userCity = $("#userInput").val();
   console.log(`CITY ENTERED: ${userCity}`);
   storeCity.push(userCity);
@@ -55,9 +55,6 @@ $("#john").on("click", function (event) {
   window.location.href = 'index2.html'
   $("#weather").append(cityData);
   // getTrailandforcastdat(data.coord.lat, data.coord.lon
-
-
-
 });
 
 $('#userChoiceBtn').on('click', function (event) {
@@ -68,6 +65,7 @@ $('#userChoiceBtn').on('click', function (event) {
   document.getElementById('weather').innerHTML = ''
   curWeather(userCit)
 })
+
 //load saved cities from local storage
 function loadCity() {
   var savedCity = localStorage.getItem("cities");
@@ -84,17 +82,25 @@ function loadCity() {
 
 //displays saved recent searches as button in Recent Searches on page1
 function displayCityBtn() {
-    
-    for (var i = 0; i < storeCity.length; i++){
-        var newBtn = $("<button>");
-        newBtn.attr("type", "button");
-        newBtn.attr("class", "list-group-item list-group-item-action cityBtn");
-        newBtn.attr("data-cityName", storeCity[i]);
-        newBtn.text(storeCity[i])
+  $("#Box").empty();
+  for (var i = 0; i = storeCity.length; i++){
+      var newBtn = $("<button>");
+      newBtn.attr("type", "button");
+      newBtn.attr("class", "you list-group-item list-group-item-action cityBtn");
+      newBtn.attr('value', storeCity[i])
+      newBtn.attr("data-cityName", storeCity[i]);
+      newBtn.text(storeCity[i])
 
-        $("#Box").append(newBtn);
-    }  
-    localStorage.setItem('cities', JSON.stringify(storeCity));
+      $("#Box").append(newBtn);
+  }  
+  localStorage.setItem('cities', JSON.stringify(storeCity));
+  //btn functionality
+  $('.you').on('click', function (event) {
+    var btn = $('.you').val();
+    document.getElementById('weather').innerHTML = ''
+    curWeather(btn)
+    
+  })
 }; 
 
   // info to allow lat and lon to grab location, as well as info for trrails
