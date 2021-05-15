@@ -1,24 +1,26 @@
+var coOrdinatesCenter
+var map;
+
+//var testLatLon = { lat: 35.8268180464077, lng: -79.2584376142173 }
+// var coOrdinatesCenter = { lat: userCityLat, lng: userCityLng }
+
 // MAP INTEGRATION
-function initMap(userCityLng,userCityLat) {
-  // var somewhereNearMandale = { lat: 35.8268180464077, lng: -79.2584376142173 }
-  //  ^^^ this can be any variable with an array of lat/long object values
-  // var coOrdCenter = (`${userCityLng}, ${userCityLat}`);
-  var coOrdCenter = {
-    lat: parseFloat(userCityLat),
-    lng: parseFloat(userCityLng)
-  }
-  console.log(`coOrdCenter:  ${coOrdCenter}`)
+
+function initMap(coOrdinatesCenter) {
+  console.log(`INSIDE initMap | coOrdinatesCenter:  ${coOrdinatesCenter}`)
+  // var somewhereNearMandale = { "lat": 35.8268180464077, "lng": -79.2584376142173 }
   const map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 12,
-    center: new google.maps.LatLng(parseFloat(userCityLat), parseFloat(userCityLng)),
-    // center: coOrdCenter,
+    zoom: 14,
+    center: coOrdinatesCenter,
   });
-  //map.setCenter(coOrdCenter);
   const marker = new google.maps.Marker({
-    position: somewhereNearMandale,
+    position: coOrdinatesCenter,
+    //position: somewhereNearMandale,
     map: map,
   });
+  google.maps.event.trigger(map, 'resize');
 };
+
 
 //Current Weather function//
  var date = moment().format("L");
@@ -44,13 +46,17 @@ function initMap(userCityLng,userCityLat) {
           $("#weather").append(cityData);
           var userCityLng = data.coord.lon
           var userCityLat = data.coord.lat
+          coOrdinatesCenter = { lat: userCityLat, lng: userCityLng }
+          initMap(coOrdinatesCenter);
           console.log(`userCity Longitude, Latitude:  ${userCityLng}, ${userCityLat}`)
+          console.log(`INSIDE curWeather | coOrdinatesCenter:  ${JSON.stringify(coOrdinatesCenter)}`);
           getTrailList(userCityLng, userCityLat)
           console.log('weather', data);
+          return coOrdinatesCenter;
 
      })
-   
 };
+
 
 //Add primary search (city) from page1 to local storage
 
