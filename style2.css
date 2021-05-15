@@ -62,7 +62,7 @@ header{
     
 }
 
-#scamp, #suit {
+#scamp, #suit, #splitz {
     background-color: var(--Ton);
     font-size: 200%;
 }
