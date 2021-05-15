@@ -47,71 +47,72 @@ function initMap(coOrdinatesCenter, coOrdinatesList) {
 
 
 //Current Weather function//
- var date = moment().format("L");
- var key = '957c1d427eb08dc32b2d83caeea47227'
- var storeCity = [];
- function curWeather(storeCity) {
-   console.log(`curWeather is running`);
-     var qUrl = `https://api.openweathermap.org/data/2.5/weather?q=${storeCity}&units=imperial&appid=957c1d427eb08dc32b2d83caeea47227`;
-     
-     fetch(qUrl)
-     .then(function(response) {
-         return response.json();
-     })
-     .then(function (data){
-         var icon = data.weather[0].icon;
-         var iUrl = `https://openweathermap.org/img/wn/${icon}.png`;
-            var cityData = $(`
+var date = moment().format("L");
+var key = '957c1d427eb08dc32b2d83caeea47227'
+var storeCity = [];
+function curWeather(storeCity) {
+  console.log(`curWeather is running`);
+  var qUrl = `https://api.openweathermap.org/data/2.5/weather?q=${storeCity}&units=imperial&appid=957c1d427eb08dc32b2d83caeea47227`;
 
+  fetch(qUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      var icon = data.weather[0].icon;
+      var iUrl = `https://openweathermap.org/img/wn/${icon}.png`;
+      var cityData = $(`
                      <h3>   ${date} <br> ${data.name}<img src="${iUrl}" alt="${data.weather[0].description}"</h3>
                      <p> Current Temp: <br>${data.main.temp}\u00B0 F </p>
                      <p> Wind Speed:  <br>${data.wind.speed} mph </p>
                      <p> Humidity: <br>${data.main.humidity} \% </p>`);
-          $("#weather").append(cityData);
-          var userCityLng = data.coord.lon
-          var userCityLat = data.coord.lat
-          coOrdinatesCenter = { lat: userCityLat, lng: userCityLng }
-          //initMap(coOrdinatesCenter);
-          console.log(`INSIDE curWeather | coOrdinatesCenter:  ${JSON.stringify(coOrdinatesCenter)}`);
-          getTrailList(userCityLng, userCityLat)
-          console.log('weather', data);
-          return coOrdinatesCenter;
+      $("#weather").append(cityData);
+      var userCityLng = data.coord.lon
+      var userCityLat = data.coord.lat
+      coOrdinatesCenter = { lat: userCityLat, lng: userCityLng }
+      //initMap(coOrdinatesCenter);
+      console.log(`INSIDE curWeather | coOrdinatesCenter:  ${JSON.stringify(coOrdinatesCenter)}`);
+      getTrailList(userCityLng, userCityLat)
+      console.log('weather', data);
+      return coOrdinatesCenter;
 
-     })
+    })
 };
 
 
 //Add primary search (city) from page1 to local storage
 
-$("#john").on("click", function (event) {
+$("#userInput").keyup(function (event) {
+  if (event.which === 13) {
+    $("#john").click();
+  }
+});
+
+$("#john").click(function () {
   var userCity = $("#userInput").val();
   console.log(`CITY ENTERED: ${userCity}`);
   storeCity.push(userCity);
   localStorage.setItem("cities", JSON.stringify(storeCity))
-  window.location.href = 'index2.html'
   displayCityBtn();
-  curWeather(userCity);
   window.location.href = 'index2.html'
+  curWeather(userCity);
   $("#weather").append(cityData);
-  
-  // getTrailandforcastdat(data.coord.lat, data.coord.lon
+})
 
-
-
-
-
-
+$("#userInput").keyup(function (event) {
+  if (event.which === 13) {
+    $("#userChoiceBtn").click();
+  }
 });
-
-$('#userChoiceBtn').on('click', function (event) {
+$("#userChoiceBtn").click(function (){
   var userCit = $('#userInput').val();
   storeCity.push(userCit);
   localStorage.setItem('cities', JSON.stringify(storeCity))
-  document.getElementById("weather").innerHTML = "";
   displayCityBtn();
   document.getElementById('weather').innerHTML = ''
   curWeather(userCit)
 })
+
 //load saved cities from local storage
 function loadCity() {
   var savedCity = localStorage.getItem("cities");
@@ -125,37 +126,32 @@ function loadCity() {
   }
 };
 
-
-// WC Append Child
-
-// function insert() {
-//   var order = document.getElementById("#order");
-//   var lsit = document.createElement("li");
-//   lsit.setAttribute("id", "lsit");
-//   lsit.appendChild(document.createTextNode("#userInput"));
-//   document.getElementById("order").appendChild(lsit);
-//   // order.appendChild(lsit);
-// }
-
 //displays saved recent searches as button in Recent Searches on page1
 function displayCityBtn() {
-    
-    for (var i = 0; i < storeCity.length; i++){
-        var newBtn = $("<button>");
-        newBtn.attr("type", "button");
-        newBtn.attr("class", "list-group-item list-group-item-action cityBtn");
-        newBtn.attr("data-cityName", storeCity[i]);
-        newBtn.text(storeCity[i])
+  $('#Box').empty();
+  for (var i = 0; i < storeCity.length; i++) {
+    var newBtn = $("<button>");
+    newBtn.attr("type", "button");
+    newBtn.attr("class", "you list-group-item list-group-item-action cityBtn");
+    newBtn.attr('value', storeCity[i]);
+    newBtn.attr("data-cityName", storeCity[i]);
+    newBtn.text(storeCity[i]);
 
-        $("#order").append(newBtn);
-    }  
-    localStorage.setItem('cities', JSON.stringify(storeCity));
-}; 
+    $("#Box").append(newBtn);
+  }
+  localStorage.setItem('cities', JSON.stringify(storeCity));
+  //btn functionality
+  $('.you').on('click', function (event) {
+    var btn = $('.you').val()
+    document.getElementById('weather').innerHTML = '';
+    curWeather(btn)
+  })
+};
 
-  // info to allow lat and lon to grab location, as well as info for trrails
-  // var API_KEY = '10e1f68a65cde5b6f69c3c18e862cb60';
+// info to allow lat and lon to grab location, as well as info for trrails
+// var API_KEY = '10e1f68a65cde5b6f69c3c18e862cb60';
 
-function getTrailList(userCityLng,userCityLat) {
+function getTrailList(userCityLng, userCityLat) {
   console.log(`getTrailList is running`)
   var requestTrailList = `https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lon=${userCityLng}&lat=${userCityLat}`
   fetch(requestTrailList, {
@@ -185,7 +181,7 @@ function getTrailList(userCityLng,userCityLat) {
               coOrdinatesMarker[1] = parseFloat(coOrdsLon);
               coOrdinatesList.push(coOrdinatesPair);
               coOrdinatesMarkerList.push(coOrdinatesMarker);
-            } 
+            }
           } else if (data.results <= 5) {
             for (let i = 0; i < data.results; i++) {
               var coOrdsLon = data.data[i].lon;
@@ -214,9 +210,3 @@ function getTrailList(userCityLng,userCityLat) {
 
 }
 loadCity()
-
-
-
-
-
-
