@@ -1,40 +1,76 @@
-# kayak-launch
+# Adventure Finder (<sub>formerly _kayak-launch_</sub>)
 
-1html-
-    boilerplate html
-    flex/ mobile friendly
-    h1-welcome
-    p-what is this website about
-    form - for state/city
-    submit- btn // event listener to start to kick start api functions and change html files// activates local storage
+### About
 
-2html- 
-    boiler plate html 
-    flex/moile friendly
-    form-for state/city
-    submit- btn// event listhener to run the api functions again and replace results (im guessing that would be a different function)// activates local storage
-    2 main divs - 
-     1- for results address and weather -- corresponding and descriptive id's
-     2- pin map 
+*more to come*
 
-extra credit- 
-    for the restaurant dont change the html file just add to the excisting page - one bug function that populates and figures everything out. 
 
-create variable from user choice 
-store in array 
+### Description
 
-function-
-    boat launches api 
-        populate map with markers 
-    weather api 
-            high/ low 
-            chances of rain 
+*more to come*
 
-    seperate functions functions for populating 
+### User Story
+```
+GIVEN I am an outdoor enthusiast
+THEN I want to be able to easily find hiking trails near cities of my choice.
+WHEN I search a city
+THEN I want to be able to find multiple hiking trails near that city shown on a map.
+WHEN the city is shown
+THEN I want to know the current weather at that location.
+WHEN I search for a city
+THEN I also want that city saved in recent searches so I can quickly see the results again.
+```
 
-    use one big function to and call everything else. 
+### Design
 
-    local storage function- also preventing reset 
+*screenshots here*
+
+### Development
+
+#### The Team
+
+* **Rob Brunett** (_Team Lead_):  HTML, CSS, JavaScript, wireframe, documentation, planning
+* **Bryan Civils**:  JavaScript, API research, development and implementation
+* **Wiliam Crews**: HTML, CSS, JavaScript, design, aesthetics
+* **Kenneth Ferguson**: JavaScript, API research, development and implementation
+* **Naomi Serrano**:   HTML, CSS, JavaScript, pseudocode, design, aesthetics
+
+#### Technologies Used
+* HTML
+* CSS
+* JavaScript
+* JQuery
+* Materialize
+* Moment
+* Google Fonts
+* [Open Weather API](https://openweathermap.org/)
+* Google Maps API (["Maps JavaScript API"](https://developers.google.com/maps/documentation/javascript/overview))
+* [Trail API](https://rapidapi.com/trailapi/api/trailapi)
+
+#### Challenges
+
+* Connecting multiple APIs (*3 total*) and cascading data through each
+* Implementation of Materialize
+* Implementation of Google Maps API
+
+#### Successes
+
+* API Integration
+* Clean UI design
+* Surviving the project sprint 🏃‍♀️
+
+
+### Future Enhancements
+
+#### Feature Adds:
+* Enable users to see restaurants near their hiking areas.
+* Recommend trails in most popular search cities on main page.
+* Import images from trails around the user’s searched city.
+
+#### App Improvements:
+* Update to design to be mobile responsive
+* Allow user to define location by city and state or by zipcode
+* Customize trail infobox content on location marker click
 
 
 
